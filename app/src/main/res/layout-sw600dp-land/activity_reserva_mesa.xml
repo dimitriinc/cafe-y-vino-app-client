@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ReservaMesaActivity"
+    android:background="@drawable/bkg_reserva_mesa">
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabNextMesa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_navigate_next"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:maxImageSize="30dp"
+        android:layout_margin="45dp"/>
+
+    <TextView
+        android:id="@+id/txtEscogerMesa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="104dp"
+        android:fontFamily="@font/aladin"
+        android:text="@string/escoger_mesa"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.774"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imgEscogerMesa"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/btn_mesa"
+        app:layout_constraintEnd_toEndOf="@+id/txtEscogerMesa"
+        app:layout_constraintStart_toStartOf="@+id/txtEscogerMesa"
+        app:layout_constraintTop_toBottomOf="@+id/txtEscogerMesa" />
+
+    <TextView
+        android:id="@+id/txtMesa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/aladin"
+        android:textSize="24sp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="@+id/txtEscogerMesa"
+        app:layout_constraintStart_toStartOf="@+id/txtEscogerMesa"
+        app:layout_constraintTop_toBottomOf="@+id/imgEscogerMesa" />
+
+    <ImageView
+        android:id="@+id/imgSala"
+        android:layout_width="71dp"
+        android:layout_height="64dp"
+        android:src="@drawable/ic_plan"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.446"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.593" />
+
+    <TextView
+        android:id="@+id/txtVerSala"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/aladin"
+        android:text="@string/reserva_ver_plan"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="@+id/imgSala"
+        app:layout_constraintStart_toStartOf="@+id/imgSala"
+        app:layout_constraintTop_toBottomOf="@+id/imgSala" />
+
+    <ImageView
+        android:id="@+id/imgInfoMesa"
+        android:layout_width="94dp"
+        android:layout_height="86dp"
+        android:layout_marginTop="104dp"
+        app:layout_constraintEnd_toStartOf="@+id/txtEscogerMesa"
+        app:layout_constraintHorizontal_bias="0.423"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/btn_info" />
+</androidx.constraintlayout.widget.ConstraintLayout>

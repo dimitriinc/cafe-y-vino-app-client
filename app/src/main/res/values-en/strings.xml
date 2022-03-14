@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="noti_farewell_title">Thank you for your visit!</string>
+    <string name="noti_farewell_text">We hope to see you back soon, %1$s\nYou\'ve earned %2$s bonus points</string>
+    <string name="noti_puerta_title">You have entered the restaurant</string>
+    <string name="noti_puerta_text">Welcome, %1$s, you can now add menu items to the shopping cart and make orders</string>
+    <string name="noti_reserva_ack_title">Confirmation of the reservation</string>
+    <string name="noti_reserva_ack_text">Your reservation for %1$s at %2$s for %3$s persons is accepted</string>
+    <string name="noti_reserva_nack_title">Rejection of the reservation</string>
+    <string name="noti_reserva_nack_text">Your reservation for %1$s at %2$s is rejected\n%3$s</string>
+    <string name="noti_pedido_title">Confirmation of the order</string>
+    <string name="noti_pedido_text">Your order is accepted</string>
+    <string name="noti_cuenta_title">Confirmation of the bill request</string>
+    <string name="noti_cuenta_text">The bill request is received\nPlease wait for you waiter</string>
+    <string name="noti_regalo_title">Confirmation of the gift request</string>
+    <string name="noti_regalo_text">Your gift will arrive soon</string>
+    <string name="noti_msg_title">A message from the administration</string>
+    <string name="crypto">Crypto</string>
+    <string name="pedir_cuenta">Request the bill</string>
+    <string name="pedir_cuenta_cash">Cash</string>
+    <string name="cuenta_monto">Amount</string>
+    <string name="cuenta_nombre">Name</string>
+    <string name="cuenta_precio">Price</string>
+    <string name="gift_user_msg">%1$s, your bonus points:</string>
+    <string name="user_data_title">User data</string>
+    <string name="bienvenido">Welcome</string>
+    <string name="reserva_ver_plan">See the tables arrangement</string>
+    <string name="mesa">Table %1$s</string>
+    <string name="data_telefono">Phone number</string>
+    <string name="data_email">E-mail</string>
+    <string name="date_picker">Choose a date</string>
+    <string name="part_of_day_picker">Choose a part of day</string>
+    <string name="escoger_hora">Choose an hour</string>
+    <string name="escoger_pax">How many people</string>
+    <string name="escoger_mesa">Choose a table</string>
+    <string name="tintos">Red Wines</string>
+    <string name="blancos">White Wines</string>
+    <string name="rose">Rose Wines</string>
+    <string name="de_postre">Dessert Wines</string>
+    <string name="por_copa">Wines by Glass</string>
+    <string name="agregar_canasta">Add to the shopping cart</string>
+    <string name="canasta">Shopping cart</string>
+    <string name="menu">Menu</string>
+    <string name="cuenta">Bill</string>
+    <string name="enviar_pedido">Send the order</string>
+    <string name="inicio">Home</string>
+    <string name="new_name">new name</string>
+    <string name="new_phone">new phone number</string>
+    <string name="new_email">new e-mail</string>
+    <string name="reserva_comment">A comment (optional)</string>
+    <string name="telefono">Phone number</string>
+    <string name="contraseña">Password</string>
+    <string name="fecha_nacimiento">Date of birth</string>
+    <string name="email">E-mail</string>
+    <string name="su_email">your e-mail</string>
+    <string name="error_email">Please, type in your e-mail</string>
+    <string name="error_password">Please, type in your password</string>
+    <string name="error_password_length">The password should be 6 caracters or more</string>
+    <string name="error_nombre">Please, type in your name</string>
+    <string name="error_telefono">Please, type in your phone number</string>
+    <string name="error_fecha_nacimiento">Please, type in your date of birth</string>
+    <string name="cuenta_enviada">The request is sent</string>
+    <string name="cuenta_vacia">The bill is empty</string>
+    <string name="canasta_no_sending">Your can\'t send orders at the moment\nWait for the bill\'s cancelation</string>
+    <string name="main_menu_ofertas_404">It\'s not a happy hour time</string>
+    <string name="main_request_puerta">The request is sent</string>
+    <string name="reserva_empty_mesa">Please, choose a table</string>
+    <string name="error">We are sorry, there was an error\nCheck your internet connection</string>
+    <string name="canasta_on_sending_pedido">Thank you for your order!</string>
+    <string name="user_empty_field_email">Type in an e-mail</string>
+    <string name="user_empty_field_phone">Type in a phone number</string>
+    <string name="user_empty_field_name">Type in a name</string>
+    <string name="gift_saldo">You don\'t have enough bonus points for this product</string>
+    <string name="main_we_closed">We\'re closed at the moment</string>
+    <string name="regalo_not_present_rejection">You have to be inside the restaurant to request gifts\nTry knocking on the door</string>
+    <string name="solicitud_reserva">Thank you, %1$s\nWait for the confirmation</string>
+    <string name="vacia_canasta">The shopping cart is empty</string>
+    <string name="sent_email_toast">The e-mail message is sent</string>
+    <string name="email_not_sent">The e-mail message isn\'t sent\nError: %1$s</string>
+    <string name="login_inicio">Logged in successfully</string>
+    <string name="reserva_error_hora">Please, choose an hour</string>
+    <string name="reserva_error_pax">Please, choose an amount of people</string>
+    <string name="reserva_error_date">Please, choose a date</string>
+    <string name="reserva_error_part">Please, coose a part of day</string>
+    <string name="cuenta_no_expand">Your bill is being processed</string>
+    <string name="on_adding_item">Item added!</string>
+    <string name="omitir">Skip</string>
+    <string name="registrarse">Register</string>
+    <string name="cambiar">Change</string>
+    <string name="mostrar">Show</string>
+    <string name="confirmar">Confirm</string>
+    <string name="iniciar">Log in</string>
+    <string name="restablecer_contrasena">Restablish password</string>
+    <string name="send_email">Send the form</string>
+    <string name="btn_data_nombre">Change name</string>
+    <string name="btn_data_email">Change e-mail</string>
+    <string name="btn_data_telefono">Change phone number</string>
+    <string name="alert_reserva_fecha">Date:</string>
+    <string name="alert_reserva_hora">Hour:</string>
+    <string name="alert_reserva_pax">Persons:</string>
+    <string name="alert_reserva_mesa">Table:</string>
+    <string name="alert_reserva_comment">Comment:</string>
+    <string name="alert_reserva_fecha_title">Restrictions for reservations</string>
+    <string name="alert_reserva_fecha_message">Sunday - we\'re closed\nSaturday and Friday - we attend without reservations</string>
+    <string name="alert_reserva_mesa_message">Already reserved tables will be disabled in the list</string>
+    <string name="gift_msg">Request %1$s?</string>
+    <string name="reserva_tiempo_espera">Waiting time for reservations to arrive is 10 minutes</string>
+    <string name="dialog_reset_email_title">Password recovery</string>
+    <string name="no_email">Please, type in the e-mail you\'re registered with</string>
+    <string name="message_canasta_info">Tap - add one more of the same itemMenu\nPress and hold - delete product</string>
+    <string name="message_gc_info">Tap - check out the itemMenu\'s data\nPress and hold - add the product to the shopping cart</string>
+    <string name="no_comment">no comment</string>
+    <string name="client_name_error">This name is not available</string>
+    <string name="no_connection">No network connection</string>
+    <string name="wrong_email">This email is not registered</string>
+    <string name="wrong_password">Wrong password</string>
+
+    <string-array name="pager_headings">
+        <item>Create and send orders</item>
+        <item>Cancel the bill</item>
+        <item>Reserve tables</item>
+        <item>Fidelity program</item>
+    </string-array>
+
+    <string-array name="pager_descriptions">
+        <item>Review the interactive menu.\nKnock on the door when you are at the restaurant to make orders from the app.</item>
+        <item>Supervise you bill and ask for cancelation from the same screen.</item>
+        <item>Simple and quick reservations: choose date, time, and table; and wait for confirmation.</item>
+        <item>Collect bonus points from each visit and use them to get various treats</item>
+    </string-array>
+
+</resources>

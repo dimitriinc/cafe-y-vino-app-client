@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CuentaActivity">
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabParentCuenta"
+        android:layout_width="74dp"
+        android:layout_height="76dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:scaleType="center"
+        android:scrollbarSize="4dp"
+        app:elevation="21dp"
+        app:fabCustomSize="75dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardParent"
+        app:maxImageSize="50dp"
+        app:srcCompat="@drawable/ic_expand" />
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabCuentaHome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardParent"
+        app:srcCompat="@drawable/ic_home" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabCuentaMenu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardParent"
+        app:srcCompat="@drawable/ic_cuenta" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabCrypto"
+        android:layout_width="74dp"
+        android:layout_height="76dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="30dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:scaleType="center"
+        android:scrollbarSize="4dp"
+        android:visibility="gone"
+        app:elevation="21dp"
+        app:fabCustomSize="75dp"
+        app:layout_constraintEnd_toStartOf="@+id/fabPedirCuenta"
+        app:layout_constraintTop_toBottomOf="@+id/fabCash"
+        app:maxImageSize="50dp"
+        app:srcCompat="@drawable/ic_doge" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabPedirCuenta"
+        android:layout_width="74dp"
+        android:layout_height="76dp"
+        android:layout_marginBottom="16dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:scaleType="center"
+        android:scrollbarSize="4dp"
+        android:visibility="gone"
+        app:elevation="21dp"
+        app:fabCustomSize="75dp"
+        app:layout_constraintBottom_toTopOf="@+id/fabParentCuenta"
+        app:layout_constraintEnd_toEndOf="@+id/fabParentCuenta"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/fabParentCuenta"
+        app:maxImageSize="50dp"
+        app:srcCompat="@drawable/ic_pedir_cuenta" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabYape"
+        android:layout_width="74dp"
+        android:layout_height="76dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="100dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:scaleType="center"
+        android:scrollbarSize="4dp"
+        android:visibility="gone"
+        app:elevation="21dp"
+        app:fabCustomSize="75dp"
+        app:layout_constraintStart_toEndOf="@+id/fabPedirCuenta"
+        app:layout_constraintTop_toBottomOf="@+id/fabPos"
+        app:maxImageSize="50dp"
+        app:srcCompat="@drawable/ic_yape" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabPos"
+        android:layout_width="74dp"
+        android:layout_height="76dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="200dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:scaleType="center"
+        android:scrollbarSize="4dp"
+        android:visibility="gone"
+        app:elevation="21dp"
+        app:fabCustomSize="75dp"
+        app:layout_constraintStart_toEndOf="@+id/fabPedirCuenta"
+        app:layout_constraintTop_toTopOf="parent"
+        app:maxImageSize="50dp"
+        app:srcCompat="@drawable/ic_pos" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabCash"
+        android:layout_width="74dp"
+        android:layout_height="76dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginEnd="30dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:scaleType="center"
+        android:scrollbarSize="4dp"
+        android:visibility="gone"
+        app:elevation="21dp"
+        app:fabCustomSize="75dp"
+        app:layout_constraintEnd_toStartOf="@+id/fabPedirCuenta"
+        app:layout_constraintTop_toTopOf="parent"
+        app:maxImageSize="50dp"
+        app:srcCompat="@drawable/ic_cash" />
+
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardParent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="100dp"
+        app:cardCornerRadius="15dp"
+        app:cardElevation="20dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardPattern"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="15dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/cardCount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_gravity="center_vertical"
+                        android:layout_margin="5dp"
+                        app:cardCornerRadius="7dp"
+                        app:cardElevation="10dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:fontFamily="@font/aladin"
+                            android:paddingHorizontal="10dp"
+                            android:text="@string/cuenta_monto"
+                            android:textSize="20sp" />
+
+                    </com.google.android.material.card.MaterialCardView>
+
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/cardName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_margin="5dp"
+                        android:layout_toEndOf="@+id/cardCount"
+                        app:cardCornerRadius="7dp"
+                        app:cardElevation="10dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/aladin"
+                            android:paddingHorizontal="10dp"
+                            android:text="@string/cuenta_nombre"
+                            android:textSize="20sp" />
+
+                    </com.google.android.material.card.MaterialCardView>
+
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/cardText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_margin="5dp"
+                        android:layout_toStartOf="@+id/cardTotal"
+                        app:cardCornerRadius="7dp"
+                        app:cardElevation="10dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/aladin"
+                            android:paddingHorizontal="10dp"
+                            android:text="@string/cuenta_precio"
+                            android:textSize="20sp" />
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/cardTotal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_gravity="center_vertical"
+                        android:layout_margin="5dp"
+                        app:cardCornerRadius="7dp"
+                        app:cardElevation="10dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:fontFamily="@font/aladin"
+                            android:paddingHorizontal="10dp"
+                            android:text="@string/cuenta_total"
+                            android:textSize="20sp" />
+
+                    </com.google.android.material.card.MaterialCardView>
+
+
+                </RelativeLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recCuenta"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/txtPrimer"
+                android:layout_below="@+id/cardPattern"
+                android:layout_centerHorizontal="true"
+                android:layout_marginVertical="10dp" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/txtPrimer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="10dp"
+                android:layout_toStartOf="@+id/txtSecundo"
+                app:cardCornerRadius="7dp"
+                app:cardElevation="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/aladin"
+                    android:paddingHorizontal="10dp"
+                    android:text="@string/cuenta_total"
+                    android:textSize="20sp" />
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/txtSecundo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="10dp"
+                app:cardCornerRadius="7dp"
+                app:cardElevation="10dp">
+
+                <TextView
+                    android:id="@+id/txtMontoTotal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:fontFamily="@font/aladin"
+                    android:paddingHorizontal="10dp"
+                    android:textSize="20sp" />
+
+            </com.google.android.material.card.MaterialCardView>
+
+        </RelativeLayout>
+
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <TextView
+        android:id="@+id/txtCrypto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/shape_fab_txt"
+        android:elevation="21dp"
+        android:fontFamily="@font/aladin"
+        android:padding="10dp"
+        android:text="@string/crypto"
+        android:textSize="18sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/fabCrypto"
+        app:layout_constraintEnd_toEndOf="@+id/fabCrypto"
+        app:layout_constraintStart_toStartOf="@+id/fabCrypto" />
+
+    <TextView
+        android:id="@+id/txtPedirCuenta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/shape_fab_txt"
+        android:elevation="21dp"
+        android:fontFamily="@font/aladin"
+        android:padding="10dp"
+        android:text="@string/pedir_cuenta"
+        android:textSize="18sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/fabPedirCuenta"
+        app:layout_constraintEnd_toEndOf="@+id/fabPedirCuenta"
+        app:layout_constraintStart_toStartOf="@+id/fabPedirCuenta" />
+
+    <TextView
+        android:id="@+id/txtCash"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/shape_fab_txt"
+        android:elevation="21dp"
+        android:fontFamily="@font/aladin"
+        android:padding="10dp"
+        android:text="@string/pedir_cuenta_cash"
+        android:textSize="18sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/fabCash"
+        app:layout_constraintEnd_toEndOf="@+id/fabCash"
+        app:layout_constraintStart_toStartOf="@+id/fabCash" />
+
+    <TextView
+        android:id="@+id/txtYape"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/shape_fab_txt"
+        android:elevation="21dp"
+        android:fontFamily="@font/aladin"
+        android:padding="10dp"
+        android:text="@string/pedir_cuenta_yape"
+        android:textSize="18sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/fabYape"
+        app:layout_constraintEnd_toEndOf="@+id/fabYape"
+        app:layout_constraintStart_toStartOf="@+id/fabYape" />
+
+    <TextView
+        android:id="@+id/txtPos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/shape_fab_txt"
+        android:elevation="21dp"
+        android:fontFamily="@font/aladin"
+        android:padding="10dp"
+        android:text="@string/pedir_cuenta_pos"
+        android:textSize="18sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/fabPos"
+        app:layout_constraintEnd_toEndOf="@+id/fabPos"
+        app:layout_constraintStart_toStartOf="@+id/fabPos" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

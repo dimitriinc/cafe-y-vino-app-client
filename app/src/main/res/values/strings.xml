@@ -1,0 +1,160 @@
+<resources xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="Typos">
+
+    <string name="app_name" translatable="false">Cafe y Vino</string>
+
+    // notifications
+    <string name="noti_farewell_title">Gracias por la visita!</string>
+    <string name="noti_farewell_text">Te esperamos de vuelta pronto, %1$s\nHas ganado %2$s puntos de bono</string>
+    <string name="noti_puerta_title">La sesión está iniciada</string>
+    <string name="noti_puerta_text">Bienvenido, %1$s, ahora puedes agregar los articulos de la carta a la canasta y hacer pedidos</string>
+    <string name="noti_reserva_ack_title">Confirmación de la reserva</string>
+    <string name="noti_reserva_ack_text">Tu reserva de %1$s a las %2$s para %3$s personas está aceptada</string>
+    <string name="noti_reserva_nack_title">Rechazo de la reserva</string>
+    <string name="noti_reserva_nack_text">Tu reserva de %1$s a las %2$s está rechazada\n%3$s</string>
+    <string name="noti_pedido_title">Confirmación del pedido</string>
+    <string name="noti_pedido_text">El pedido está aceptado</string>
+    <string name="noti_cuenta_title">Confirmación de la petición de cuenta</string>
+    <string name="noti_cuenta_text">La solicitud para la cuenta ha llegado\nTe la entregamos pronto</string>
+    <string name="noti_regalo_title">Confirmación de la petición de regalo</string>
+    <string name="noti_regalo_text">El regalo llegará pronto</string>
+    <string name="noti_msg_title">Un mensaje de la administración</string>
+
+    // text views
+    <string name="crypto">Cripto</string>
+    <string name="pedir_cuenta">Pedir cuenta</string>
+    <string name="pedir_cuenta_cash">Efectivo</string>
+    <string name="pedir_cuenta_yape" translatable="false">Yape</string>
+    <string name="pedir_cuenta_pos" translatable="false">POS</string>
+    <string name="cuenta_total" translatable="false">Total</string>
+    <string name="cuenta_monto">Monto</string>
+    <string name="cuenta_nombre">Nombre</string>
+    <string name="cuenta_precio">Precio</string>
+    <string name="gift_user_msg">%1$s, tus bonos son:</string>
+    <string name="user_data_title">Datos del usuario</string>
+    <string name="bienvenido">Bienvenido</string>
+    <string name="reserva_ver_plan">Ver el plan de la sala</string>
+    <string name="gift_list_item_price" translatable="false">%1$spts</string>
+    <string name="mesa">Mesa %1$s</string>
+    <string name="data_telefono">Teléfono</string>
+    <string name="data_email">Email</string>
+
+
+    <string name="date_picker">Escoge la fecha</string>
+    <string name="part_of_day_picker">Escoge la parte del día</string>
+    <string name="escoger_hora">Escoge la hora</string>
+    <string name="escoger_pax">Cuantas personas</string>
+    <string name="escoger_mesa">Escoge la mesa</string>
+
+    <string name="tintos">Vinos Tintos</string>
+    <string name="blancos">Vinos Blancos</string>
+    <string name="rose">Vinos Rosé</string>
+    <string name="de_postre">Vinos de Postre</string>
+    <string name="por_copa">Vinos por Copa</string>
+
+    <string name="agregar_canasta">Agregar a la canasta</string>
+    <string name="canasta">Canasta</string>
+    <string name="menu">Carta</string>
+    <string name="cuenta">Cuenta</string>
+    <string name="enviar_pedido">Enviar el pedido</string>
+    <string name="info" translatable="false">Info</string>
+    <string name="inicio">Inicio</string>
+
+    // edit text hints
+    <string name="new_name">nuevo nombre</string>
+    <string name="new_phone">nuevo teléfono</string>
+    <string name="new_email">nuevo email</string>
+    <string name="reserva_comment">Un comentario (opcional)</string>
+    <string name="telefono">Teléfono</string>
+    <string name="contraseña">Contraseña</string>
+    <string name="fecha_nacimiento">Fecha de nacimiento</string>
+    <string name="email">Email</string>
+    <string name="su_email">su email</string>
+
+    <string name="error_email">Por favor, ingresa tu correo electrónico</string>
+    <string name="error_password">Por favor, ingresa una contraseña</string>
+    <string name="error_password_length">La conraseña debe ser 6 signos o más</string>
+    <string name="error_nombre">Por favor, ingresa tu nombre</string>
+    <string name="error_telefono">Por favor, ingresa tu numero de teléfono</string>
+    <string name="error_fecha_nacimiento">Por favor, ingresa tu fecha de nacimiento</string>
+
+
+    // toasts
+    <string name="cuenta_enviada">La peticón está enviada</string>
+    <string name="cuenta_vacia">La cuenta está vacía</string>
+    <string name="canasta_no_sending">No se puede enviar pedidos en este momento\nEspera la cancelación de la cuenta</string>
+    <string name="main_menu_ofertas_404">Las ofertas no están disponibles en este momento</string>
+    <string name="main_request_puerta">La solicitud está enviada</string>
+    <string name="reserva_empty_mesa">Por favor, escoge una mesa</string>
+    <string name="error">Lo sentimos, ha ocurrido un error</string>
+    <string name="canasta_on_sending_pedido">Gracias por tu pedido!</string>
+    <string name="user_empty_field_email">Ingresa un email</string>
+    <string name="user_empty_field_phone">Ingresa un número de teléfono</string>
+    <string name="user_empty_field_name">Ingresa un nombre</string>
+    <string name="gift_saldo">No tienes bonos suficientes para pedir este producto</string>
+    <string name="main_we_closed">Estamos cerrados en este momento</string>
+    <string name="regalo_not_present_rejection">Tienes que entrar al restaurante para pedir los regalos\nIntenta tocar la puerta</string>
+    <string name="solicitud_reserva">Gracias, %1$s!\nEspera la confirmación.</string>
+    <string name="vacia_canasta">La canasta está vacía</string>
+    <string name="sent_email_toast">El email está enviado</string>
+    <string name="email_not_sent">El email no está enviado\nEror: %1$s</string>
+    <string name="login_inicio">La sesión está iniciada</string>
+    <string name="reserva_error_hora">Por favor, escoge una hora</string>
+    <string name="reserva_error_pax">Por favor, escoge la cantidad de personas</string>
+    <string name="reserva_error_date">Por favor, escoge una fecha</string>
+    <string name="reserva_error_part">Por favor, escoge una parte del día</string>
+    <string name="cuenta_no_expand">Su cuenta ya se está procesando</string>
+    <string name="on_adding_item">Agregado uno!</string>
+    <string name="client_name_error">Este nombre es reservado</string>
+    <string name="no_connection">El dispositivo no está conectado a la red</string>
+    <string name="wrong_password">La contraseña equivocada</string>
+    <string name="wrong_email">Este email no está registrado</string>
+
+    // buttons
+    <string name="logout" translatable="false">Log Out</string>
+    <string name="omitir">Omitir</string>
+    <string name="registrarse">Registrarse</string>
+    <string name="login" translatable="false">Log In</string>
+    <string name="cambiar">Cambiar</string>
+    <string name="mostrar">Mostrar</string>
+    <string name="confirmar">Confirmar</string>
+    <string name="iniciar">Iniciar</string>
+    <string name="restablecer_contrasena">Restablecer la contraseña</string>
+    <string name="send_email">Enviar el formulario</string>
+    <string name="btn_data_nombre">Cambiar nombre</string>
+    <string name="btn_data_email">Cambiar email</string>
+    <string name="btn_data_telefono">Cambiar teléfono</string>
+
+    // alert dialogs
+    <string name="alert_reserva_fecha">Fecha:</string>
+    <string name="alert_reserva_hora">Hora:</string>
+    <string name="alert_reserva_pax">Personas:</string>
+    <string name="alert_reserva_mesa">Mesa:</string>
+    <string name="alert_reserva_comment">Comentario:</string>
+    <string name="alert_reserva_fecha_title">La restricción para las reservas</string>
+    <string name="alert_reserva_fecha_message">Domingo - no hay attención\nViernes y Sabado - atendemos por orden de llegada</string>
+    <string name="alert_reserva_mesa_message">Las mesas ya reservadas estarán bloqueadas en la lista</string>
+    <string name="gift_msg">Pedir %1$s?</string>
+    <string name="reserva_tiempo_espera">El tiempo de la espera para las reservaciones es 10 minutos.</string>
+    <string name="dialog_reset_email_title">Restablecimiento de la contraseña</string>
+    <string name="no_email">Por favor, ingresa el email con que estás registrado</string>
+    <string name="message_canasta_info">Un click - agregar uno del mismo producto\nMantener presionado - eliminar el producto</string>
+    <string name="message_gc_info">Un click - revisar los datos del producto\nMantener presionado - agregar el producto a la canasta</string>
+    <string name="no_comment">sin comentario</string>
+
+    <string-array name="pager_headings">
+        <item>Haz pedidos</item>
+        <item>Cancela la cuenta</item>
+        <item>Reserva mesas</item>
+        <item>Sistema de lealtad</item>
+    </string-array>
+
+    <string-array name="pager_descriptions">
+        <item>Revisa la carta interactiva.\nToca la puerta cuando estás en el restaurante para poder hacer pedidos desde el aplicativo.</item>
+        <item>Supervisa tu cuenta y pide su cancelación en la misma pantalla.</item>
+        <item>Reservas simples y rápidas: elige la fecha, hora y mesa, y espera la confiramción.</item>
+        <item>Gana puntos de bono con cada visita y utilizalos para conseguir varias sorpresas.</item>
+    </string-array>
+
+
+</resources>

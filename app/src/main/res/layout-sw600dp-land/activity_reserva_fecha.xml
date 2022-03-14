@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bkg_reserva_fecha"
+    tools:context=".ReservaFechaActivity">
+
+    <TextView
+        android:id="@+id/txtDateAnouncement"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:fontFamily="@font/aladin"
+        android:text="@string/date_picker"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline8"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgInfo" />
+
+    <ImageView
+        android:id="@+id/imgCalendar"
+        android:layout_width="126dp"
+        android:layout_height="117dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/btn_calendar"
+        app:layout_constraintEnd_toEndOf="@+id/txtDateAnouncement"
+        app:layout_constraintStart_toStartOf="@+id/txtDateAnouncement"
+        app:layout_constraintTop_toBottomOf="@+id/txtDateAnouncement" />
+
+    <TextView
+        android:id="@+id/txtDateDisplay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/aladin"
+        android:text="TextView"
+        android:textSize="20sp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="@+id/imgCalendar"
+        app:layout_constraintStart_toStartOf="@+id/imgCalendar"
+        app:layout_constraintTop_toBottomOf="@+id/imgCalendar" />
+
+    <TextView
+        android:id="@+id/txtPartOfDay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:fontFamily="@font/aladin"
+        android:text="@string/part_of_day_picker"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline8"
+        app:layout_constraintTop_toBottomOf="@+id/imgInfo" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabNextFecha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_navigate_next"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:maxImageSize="30dp"
+        android:layout_margin="25dp"/>
+
+    <ImageView
+        android:id="@+id/imgDayNight"
+        android:layout_width="84dp"
+        android:layout_height="86dp"
+        android:layout_marginTop="30dp"
+        android:onClick="showPopup"
+        android:src="@drawable/btn_day_night"
+        app:layout_constraintEnd_toEndOf="@+id/txtPartOfDay"
+        app:layout_constraintStart_toStartOf="@+id/txtPartOfDay"
+        app:layout_constraintTop_toBottomOf="@+id/txtPartOfDay" />
+
+    <ImageView
+        android:id="@+id/imgPartOfDayDisplay"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="10dp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="@+id/imgDayNight"
+        app:layout_constraintStart_toStartOf="@+id/imgDayNight"
+        app:layout_constraintTop_toBottomOf="@+id/imgDayNight" />
+
+    <ImageView
+        android:id="@+id/imgInfo"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="100dp"
+        android:src="@drawable/btn_info"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.499"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="472dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

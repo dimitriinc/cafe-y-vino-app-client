@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@drawable/shape_fab_txt"
+        android:padding="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:id="@+id/txtReservaFecha"
+            android:textSize="18sp"
+            android:gravity="center"
+            android:layout_marginStart="10dp"
+            android:layout_toEndOf="@+id/txtReservaFechaLabel"
+            android:layout_alignBaseline="@+id/txtReservaFechaLabel"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/alert_reserva_fecha"
+            android:id="@+id/txtReservaFechaLabel"
+            android:textSize="18sp"
+            android:layout_marginStart="10dp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:id="@+id/txtReservaHora"
+            android:layout_alignBaseline="@+id/txtReservaHoraLabel"
+            android:textSize="18sp"
+            android:gravity="center"
+            android:layout_marginStart="10dp"
+            android:layout_toEndOf="@+id/txtReservaHoraLabel"
+            android:layout_below="@+id/txtReservaFecha"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/alert_reserva_hora"
+            android:id="@+id/txtReservaHoraLabel"
+            android:textSize="18sp"
+            android:layout_marginStart="10dp"
+            android:layout_below="@+id/txtReservaFechaLabel"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txtReservaHora"
+            android:text=""
+            android:id="@+id/txtReservaPax"
+            android:layout_marginStart="10dp"
+            android:textSize="18sp"
+            android:layout_alignBaseline="@+id/txtReservaPaxLabel"
+            android:gravity="center"
+            android:layout_toEndOf="@id/txtReservaPaxLabel"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:text="@string/alert_reserva_pax"
+            android:layout_below="@id/txtReservaHoraLabel"
+            android:layout_marginStart="10dp"
+            android:id="@+id/txtReservaPaxLabel"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txtReservaPax"
+            android:text=""
+            android:id="@+id/txtReservaMesa"
+            android:layout_marginStart="10dp"
+            android:textSize="18sp"
+            android:layout_alignBaseline="@+id/txtReservaMesaLabel"
+            android:gravity="center"
+            android:layout_toEndOf="@id/txtReservaMesaLabel"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtReservaMesaLabel"
+            android:text="@string/alert_reserva_mesa"
+            android:layout_below="@+id/txtReservaPaxLabel"
+            android:layout_marginStart="10dp"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txtReservaMesa"
+            android:id="@+id/txtReservaComentario"
+            android:layout_marginStart="10dp"
+            android:textSize="18sp"
+            android:text=""
+            android:layout_alignBaseline="@+id/txtReservaComentarioLabel"
+            android:gravity="start"
+            android:layout_toEndOf="@id/txtReservaComentarioLabel"
+            android:layout_marginEnd="10dp"/>
+
+        <TextView
+            android:id="@+id/txtReservaComentarioLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtReservaMesaLabel"
+            android:layout_marginStart="10dp"
+            android:text="@string/alert_reserva_comment"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+
+
+
+
+
+</RelativeLayout>

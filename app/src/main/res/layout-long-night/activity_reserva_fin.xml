@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bkg_reserva_fin"
+    tools:context=".ReservaFinActivity">
+
+    <TextView
+        android:id="@+id/txtReservaHora"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="110dp"
+        android:fontFamily="@font/aladin"
+        android:text="@string/escoger_hora"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtReservaPax"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/aladin"
+        android:text="@string/escoger_pax"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="@+id/txtReservaHora"
+        app:layout_constraintStart_toStartOf="@+id/txtReservaHora"
+        app:layout_constraintTop_toBottomOf="@+id/txtClockDisplay" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabUpload"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_cloud_upload"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/txtReservaHora"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="@+id/txtReservaHora"
+        app:layout_constraintTop_toBottomOf="@+id/edtComment"
+        app:layout_constraintVertical_bias="0.532"
+        app:maxImageSize="30dp" />
+
+    <EditText
+        android:id="@+id/edtComment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="70dp"
+        android:background="@drawable/rounded_corners_for_edt"
+        android:ems="10"
+        android:fontFamily="@font/aladin"
+        android:hint="@string/reserva_comment"
+        android:inputType="textPersonName"
+        android:padding="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/txtReservaHora"
+        app:layout_constraintStart_toStartOf="@+id/txtReservaHora"
+        app:layout_constraintTop_toBottomOf="@+id/txtPaxDisplay" />
+
+    <ImageView
+        android:id="@+id/imgClock"
+        android:layout_width="70dp"
+        android:layout_height="74dp"
+        android:layout_marginTop="10dp"
+        app:tint="@color/cream"
+        android:src="@drawable/btn_clock"
+        app:layout_constraintEnd_toEndOf="@+id/txtReservaHora"
+        app:layout_constraintStart_toStartOf="@+id/txtReservaHora"
+        app:layout_constraintTop_toBottomOf="@+id/txtReservaHora" />
+
+    <TextView
+        android:id="@+id/txtClockDisplay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/aladin"
+        android:textSize="20sp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="@+id/txtReservaHora"
+        app:layout_constraintStart_toStartOf="@+id/txtReservaHora"
+        app:layout_constraintTop_toBottomOf="@+id/imgClock" />
+
+    <ImageView
+        android:id="@+id/imgPax"
+        android:layout_width="73dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="10dp"
+        app:tint="@color/cream"
+        android:onClick="showPopupPax"
+        android:src="@drawable/btn_pax"
+        app:layout_constraintEnd_toEndOf="@+id/txtReservaHora"
+        app:layout_constraintStart_toStartOf="@+id/txtReservaHora"
+        app:layout_constraintTop_toBottomOf="@+id/txtReservaPax" />
+
+    <TextView
+        android:id="@+id/txtPaxDisplay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/aladin"
+        android:textSize="20sp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="@+id/txtReservaHora"
+        app:layout_constraintStart_toStartOf="@+id/txtReservaHora"
+        app:layout_constraintTop_toBottomOf="@+id/imgPax" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

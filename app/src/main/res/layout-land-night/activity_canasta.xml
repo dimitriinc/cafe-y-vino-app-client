@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CanastaActivity"
+    android:background="@drawable/bkg_canasta">
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabUpload"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="@drawable/ic_upload"
+        android:visibility="gone"
+        app:elevation="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/fabParent"
+        app:layout_constraintEnd_toEndOf="@+id/fabParent"
+        app:layout_constraintStart_toStartOf="@+id/fabParent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recCanasta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabCuenta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="@drawable/ic_menu"
+        android:visibility="gone"
+        app:elevation="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/fabUpload"
+        app:layout_constraintEnd_toEndOf="@+id/fabUpload"
+        app:layout_constraintStart_toStartOf="@+id/fabUpload" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabMenu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="@drawable/ic_cuenta"
+        android:visibility="gone"
+        app:elevation="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/fabCuenta"
+        app:layout_constraintEnd_toEndOf="@+id/fabCuenta"
+        app:layout_constraintStart_toStartOf="@+id/fabCuenta" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabParent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="26dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="@drawable/ic_expand"
+        app:elevation="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.37"
+        app:layout_constraintStart_toStartOf="@+id/guideline17" />
+
+    <TextView
+        android:id="@+id/txtBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/shape_fab_txt"
+        android:fontFamily="@font/aladin"
+        android:padding="10dp"
+        android:text="@string/menu"
+        android:textSize="24sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/fabMenu"
+        app:layout_constraintEnd_toStartOf="@+id/fabMenu"
+        app:layout_constraintTop_toTopOf="@+id/fabMenu" />
+
+    <TextView
+        android:id="@+id/txtCuenta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/shape_fab_txt"
+        android:fontFamily="@font/aladin"
+        android:padding="10dp"
+        android:text="@string/cuenta"
+        android:textSize="24sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/fabCuenta"
+        app:layout_constraintEnd_toStartOf="@+id/fabCuenta"
+        app:layout_constraintTop_toTopOf="@+id/fabCuenta" />
+
+    <TextView
+        android:id="@+id/txtPedido"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/shape_fab_txt"
+        android:fontFamily="@font/aladin"
+        android:padding="10dp"
+        android:text="@string/enviar_pedido"
+        android:textSize="24sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/fabUpload"
+        app:layout_constraintEnd_toStartOf="@+id/fabUpload"
+        app:layout_constraintTop_toTopOf="@+id/fabUpload" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="26dp"
+        android:layout_marginEnd="84dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="@drawable/ic_info_canasta"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/txtInicio"
+        app:layout_constraintEnd_toStartOf="@+id/txtInicio"
+        app:layout_constraintTop_toTopOf="@+id/txtInicio"
+        app:maxImageSize="50dp" />
+
+    <TextView
+        android:id="@+id/txtInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/shape_fab_txt"
+        android:fontFamily="@font/aladin"
+        android:padding="10dp"
+        android:text="@string/info"
+        android:textSize="24sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/fabInfo"
+        app:layout_constraintEnd_toStartOf="@+id/fabInfo"
+        app:layout_constraintTop_toTopOf="@+id/fabInfo" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabInicio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="26dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="@drawable/ic_home"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/fabMenu"
+        app:layout_constraintEnd_toEndOf="@+id/fabMenu"
+        app:layout_constraintStart_toStartOf="@+id/fabMenu" />
+
+    <TextView
+        android:id="@+id/txtInicio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/shape_fab_txt"
+        android:fontFamily="@font/aladin"
+        android:padding="10dp"
+        android:text="@string/inicio"
+        android:textSize="24sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/fabInicio"
+        app:layout_constraintEnd_toStartOf="@+id/fabInicio"
+        app:layout_constraintTop_toTopOf="@+id/fabInicio" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="601dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
