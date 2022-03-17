@@ -1,11 +1,11 @@
 
-.gradle/
-/.idea
-app/build/
-app/release/
+.gradle/*
+.idea/*
+app/build/*
+app/release/*
 app/*.jks
 app/google-services.json
-app/src/test
-app/src/androidTest
+app/src/test/*
+app/src/androidTest/*
 captures/
 local.properties
