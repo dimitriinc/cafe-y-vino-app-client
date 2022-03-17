@@ -1,6 +1,6 @@
 
 .gradle/
-.idea/
+/.idea
 app/build/
 app/release/
 app/*.jks
