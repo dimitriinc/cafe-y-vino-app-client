@@ -63,7 +63,10 @@ public class GiftShopActivity extends AppCompatActivity {
             }
             if (value != null && value.exists()) {
                 txtBonos.setText(String.valueOf(value.getLong(Utils.KEY_BONOS)));
-                txtMensaje.setText(getString(R.string.gift_user_msg, value.getString(Utils.KEY_NOMBRE)));
+
+                // we want only the first name of the user on display
+                String[] userNames = Objects.requireNonNull(value.getString(Utils.KEY_NOMBRE)).split(" ");
+                txtMensaje.setText(getString(R.string.gift_user_msg, userNames[0]));
                 imgGastar.setOnClickListener(v -> {
 
                     // the user is able to open the dialog fragment only in the 'present' status

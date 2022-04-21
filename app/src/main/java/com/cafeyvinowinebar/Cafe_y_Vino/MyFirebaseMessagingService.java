@@ -83,12 +83,14 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
     }
 
     private void processPuertaAck(RemoteMessage message) {
-        String nombre = message.getData().get(Utils.KEY_NOMBRE);
+
+        // we want only the first name of the user on display
+        String[] userNames = Objects.requireNonNull(message.getData().get(Utils.KEY_NOMBRE)).split(" ");
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, App.PUERTA)
                 .setContentTitle(getString(R.string.noti_puerta_title))
                 .setSmallIcon(R.drawable.logo_mini)
                 .setStyle(new NotificationCompat.BigTextStyle()
-                        .bigText(getString(R.string.noti_puerta_text, nombre)))
+                        .bigText(getString(R.string.noti_puerta_text, userNames[0])))
                 .setColor(getColor(R.color.disco))
                 .setAutoCancel(true);
         manager.notify(new Random().nextInt(), builder.build());
@@ -146,13 +148,15 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
     private void processCuentaMessage(RemoteMessage message) {
         Utils.setCanSendPedidos(this, true);
-        String nombre = message.getData().get(Utils.KEY_NOMBRE);
+
+        // we want only the first name of the user on display
+        String[] userNames = Objects.requireNonNull(message.getData().get(Utils.KEY_NOMBRE)).split(" ");
         String bono = message.getData().get(Utils.KEY_BONO);
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, App.CUENTA)
                 .setSmallIcon(R.drawable.logo_mini)
                 .setContentTitle(getString(R.string.noti_farewell_title))
                 .setStyle(new NotificationCompat.BigTextStyle()
-                        .bigText(getString(R.string.noti_farewell_text, nombre, bono)))
+                        .bigText(getString(R.string.noti_farewell_text, userNames[0], bono)))
                 .setColor(getColor(R.color.disco))
                 .setAutoCancel(true);
         manager.notify(new Random().nextInt(), builder.build());
