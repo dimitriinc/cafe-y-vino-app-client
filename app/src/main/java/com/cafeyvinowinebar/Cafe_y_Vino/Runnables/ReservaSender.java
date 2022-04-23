@@ -7,11 +7,13 @@ import android.widget.Toast;
 import com.cafeyvinowinebar.Cafe_y_Vino.App;
 import com.cafeyvinowinebar.Cafe_y_Vino.R;
 import com.cafeyvinowinebar.Cafe_y_Vino.Utils;
+import com.google.firebase.Timestamp;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.google.firebase.messaging.RemoteMessage;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -65,6 +67,7 @@ public class ReservaSender implements Runnable {
         reserva.put(Utils.KEY_COMENTARIO, comment);
         reserva.put(Utils.KEY_FECHA, date);
         reserva.put(Utils.KEY_LLEGADO, false);
+        reserva.put(Utils.KEY_TIMESTAMP, new Timestamp(new Date()));
 
         // set it on the document
         document.set(reserva)

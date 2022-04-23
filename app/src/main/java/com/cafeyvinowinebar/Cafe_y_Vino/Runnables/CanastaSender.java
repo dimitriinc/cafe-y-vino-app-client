@@ -125,17 +125,17 @@ public class CanastaSender implements Runnable {
         mainHandler.post(() -> Toast.makeText(context, context.getString(R.string.canasta_on_sending_pedido), Toast.LENGTH_SHORT).show());
 
         // create a meta object and set it to the meta doc
-        Map<String, Object> doc = new HashMap<>();
-        doc.put(Utils.KEY_IS_EXPANDED, false);
-        doc.put(Utils.KEY_MESA, mesa);
-        doc.put(Utils.SERVIDO, false);
-        doc.put(Utils.SERVIDO_BARRA, servidoBarra);
-        doc.put(Utils.SERVIDO_COCINA, servidoCocina);
-        doc.put(Utils.KEY_USER, userName);
-        doc.put(Utils.KEY_USER_ID, userId);
-        doc.put(Utils.KEY_TIMESTAMP, new Timestamp(new Date()));
+        Map<String, Object> pedidoMetaDoc = new HashMap<>();
+        pedidoMetaDoc.put(Utils.KEY_IS_EXPANDED, false);
+        pedidoMetaDoc.put(Utils.KEY_MESA, mesa);
+        pedidoMetaDoc.put(Utils.SERVIDO, false);
+        pedidoMetaDoc.put(Utils.SERVIDO_BARRA, servidoBarra);
+        pedidoMetaDoc.put(Utils.SERVIDO_COCINA, servidoCocina);
+        pedidoMetaDoc.put(Utils.KEY_USER, userName);
+        pedidoMetaDoc.put(Utils.KEY_USER_ID, userId);
+        pedidoMetaDoc.put(Utils.KEY_TIMESTAMP, new Timestamp(new Date()));
 
-        metaDoc.set(doc).addOnSuccessListener(App.executor, unused ->
+        metaDoc.set(pedidoMetaDoc).addOnSuccessListener(App.executor, unused ->
 
                 // as the meta doc is set we send a message to admins, notifying of a new order
                 fMessaging.getToken().addOnSuccessListener(App.executor, s ->
