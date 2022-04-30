@@ -65,11 +65,20 @@ public class GenericItemActivity extends AppCompatActivity {
             itemIcon = intent.getStringExtra(Utils.KEY_ICON);
 
             // set the data on the screen's views
-            StorageReference reference = fStorage.getReference();
-            StorageReference imgRef = reference.child(itemImage);
-            Glide.with(this).load(imgRef).into(imgItem);
+            if (itemImage != null) {
+                StorageReference reference = fStorage.getReference();
+                StorageReference imgRef = reference.child(itemImage);
+                Glide.with(this).load(imgRef).into(imgItem);
+            } else {
+                imgItem.setImageResource(R.drawable.logo_stand_in);
+            }
+
+            if (itemDescripcion != null) {
+                txtDesc.setText(itemDescripcion);
+            } else {
+                txtDesc.setText(R.string.no_desc);
+            }
             txtItemName.setText(itemName);
-            txtDesc.setText(itemDescripcion);
             txtPrecioInt.setText(itemPrice);
             txtPrecio.setVisibility(View.VISIBLE);
 

@@ -17,6 +17,7 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.messaging.FirebaseMessaging;
@@ -78,7 +79,7 @@ public class RegistrationActivity extends AppCompatActivity {
                     edtName.setError(getString(R.string.error_nombre));
                     return;
 
-                // the name 'client' is reserved for the orders and bills that are created by the administration in a custom manner
+                    // the name 'client' is reserved for the orders and bills that are created by the administration
                 } else if (name.equals("Cliente") || name.equals("cliente") || name.equals("CLIENTE")) {
                     edtName.setError(getString(R.string.client_name_error));
                     return;
@@ -107,34 +108,33 @@ public class RegistrationActivity extends AppCompatActivity {
                 progressBar.setVisibility(View.VISIBLE);
 
                 fAuth.createUserWithEmailAndPassword(email, pass)
-                        .addOnCompleteListener(App.executor, task -> {
-                            if (task.isSuccessful()) {
-                                fMessaging.getToken().addOnSuccessListener(App.executor, s -> {
-                                    userId = Objects.requireNonNull(fAuth.getCurrentUser()).getUid();
-                                    DocumentReference documentReference = fStore.collection("usuarios").document(userId);
-                                    Map<String, Object> user = new HashMap<>();
-                                    user.put(Utils.KEY_NOMBRE, name);
-                                    user.put(Utils.TELEFONO_ACCENT, phone);
-                                    user.put(Utils.IS_PRESENT, false);
-                                    user.put(Utils.KEY_MESA, "00");
-                                    user.put(Utils.KEY_TOKEN, s);
-                                    user.put(Utils.KEY_BONOS, 0);
-                                    user.put(Utils.KEY_FECHA_DE_NACIMIENTO, fecha);
-                                    user.put(Utils.EMAIL, fAuth.getCurrentUser().getEmail());
-                                    documentReference.set(user).addOnSuccessListener(aVoid -> {
-                                        progressBar.setVisibility(View.INVISIBLE);
-                                        startActivity(MainActivity.newIntent(getBaseContext()));
-                                    });
+                        .addOnSuccessListener(App.executor, authResult -> fMessaging.getToken().addOnSuccessListener(App.executor, s -> {
 
-                                });
+                            userId = Objects.requireNonNull(fAuth.getCurrentUser()).getUid();
+                            DocumentReference documentReference = fStore.collection("usuarios").document(userId);
+                            Map<String, Object> user = new HashMap<>();
+                            user.put(Utils.KEY_NOMBRE, name);
+                            user.put(Utils.TELEFONO_ACCENT, phone);
+                            user.put(Utils.IS_PRESENT, false);
+                            user.put(Utils.KEY_MESA, "00");
+                            user.put(Utils.KEY_TOKEN, s);
+                            user.put(Utils.KEY_BONOS, 0);
+                            user.put(Utils.KEY_FECHA_DE_NACIMIENTO, fecha);
+                            user.put(Utils.EMAIL, fAuth.getCurrentUser().getEmail());
+                            documentReference.set(user);
+                            progressBar.setVisibility(View.INVISIBLE);
+                            startActivity(MainActivity.newIntent(getBaseContext()));
+                        }))
+                        .addOnFailureListener(App.executor, e -> handler.post(() -> {
+                            if (e instanceof FirebaseAuthUserCollisionException) {
+                                Toast.makeText(RegistrationActivity.this, R.string.email_collision, Toast.LENGTH_SHORT).show();
                             } else {
-                                handler.post(() -> {
-                                    Toast.makeText(RegistrationActivity.this, getString(R.string.error), Toast.LENGTH_LONG).show();
-                                    progressBar.setVisibility(View.INVISIBLE);
-
-                                });
+                                Toast.makeText(RegistrationActivity.this, getString(R.string.error), Toast.LENGTH_LONG).show();
                             }
-                        });
+                            progressBar.setVisibility(View.INVISIBLE);
+
+                        }));
+
 
             } else {
                 Toast.makeText(getBaseContext(), R.string.no_connection, Toast.LENGTH_LONG).show();

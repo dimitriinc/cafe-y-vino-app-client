@@ -76,13 +76,18 @@ public class AdapterCategory extends FirestoreRecyclerAdapter<ItemMenu, AdapterC
 
         public void bind(ItemMenu itemMenu, Context context, Handler mainHandler) {
             txtItem.setText(itemMenu.getNombre());
-            App.executor.submit(() -> {
-                StorageReference reference = storage.getReference();
-                StorageReference child = reference.child(itemMenu.getImage());
-                mainHandler.post(() -> Glide.with(context)
-                        .load(child)
-                        .into(imgItem));
-            });
+            if (itemMenu.getImage() != null) {
+                App.executor.submit(() -> {
+                    StorageReference reference = storage.getReference();
+                    StorageReference child = reference.child(itemMenu.getImage());
+                    mainHandler.post(() -> Glide.with(context)
+                            .load(child)
+                            .into(imgItem));
+                });
+            } else {
+                imgItem.setImageResource(R.drawable.logo_stand_in);
+            }
+
         }
     }
 

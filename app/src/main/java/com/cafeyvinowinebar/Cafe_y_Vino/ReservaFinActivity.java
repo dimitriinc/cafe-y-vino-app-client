@@ -113,7 +113,7 @@ public class ReservaFinActivity extends AppCompatActivity implements PopupMenu.O
                 if (snapshot != null && snapshot.exists()) {
 
                     // we want only the first name of the user on display
-                    String[] userNames = Objects.requireNonNull(snapshot.getString(Utils.KEY_NOMBRE)).split(" ");
+                    userNombre = snapshot.getString(Utils.KEY_NOMBRE);
                     userTelefono = snapshot.getString(Utils.TELEFONO_ACCENT);
 
                     fabUpload.setOnClickListener(v -> {
@@ -143,7 +143,7 @@ public class ReservaFinActivity extends AppCompatActivity implements PopupMenu.O
                             builder.setPositiveButton(R.string.confirmar, (dialog, which) -> {
 
                                 // send the request on a background thread
-                                App.executor.submit(new ReservaSender(part, date, hora, pax, mesa, userNames[0], userTelefono,
+                                App.executor.submit(new ReservaSender(part, date, hora, pax, mesa, userNombre, userTelefono,
                                         userId, comment, getBaseContext(), mainHandler));
 
                                 // go to the MainActivity with a clear top flag to destroy all the instances of the reserva's activities

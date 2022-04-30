@@ -94,13 +94,18 @@ public class AdapterCanasta extends ListAdapter<ItemCanasta, AdapterCanasta.View
 
         public void bind(ItemCanasta item, Context context, Handler mainHandler) {
             txtCanastaItem.setText(item.getName());
-            App.executor.submit(() -> {
-                StorageReference reference = fStorage.getReference();
-                StorageReference child = reference.child(item.getIcon());
-                mainHandler.post(() -> Glide.with(context)
-                        .load(child)
-                        .into(imgCanasta));
-            });
+            if (item.getIcon() != null) {
+                App.executor.submit(() -> {
+                    StorageReference reference = fStorage.getReference();
+                    StorageReference child = reference.child(item.getIcon());
+                    mainHandler.post(() -> Glide.with(context)
+                            .load(child)
+                            .into(imgCanasta));
+                });
+            } else {
+                imgCanasta.setImageResource(R.drawable.logo_mini);
+            }
+
         }
     }
 }

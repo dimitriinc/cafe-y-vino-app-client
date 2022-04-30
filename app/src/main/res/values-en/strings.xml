@@ -114,6 +114,8 @@
     <string name="no_connection">No network connection</string>
     <string name="wrong_email">This email is not registered</string>
     <string name="wrong_password">Wrong password</string>
+    <string name="email_collision">This email is already used in the system</string>
+    <string name="no_desc">The description will be available soon</string>
 
     <string-array name="pager_headings">
         <item>Create and send orders</item>

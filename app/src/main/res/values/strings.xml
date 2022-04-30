@@ -141,6 +141,8 @@
     <string name="message_canasta_info">Un click - agregar uno del mismo producto\nMantener presionado - eliminar el producto</string>
     <string name="message_gc_info">Un click - revisar los datos del producto\nMantener presionado - agregar el producto a la canasta</string>
     <string name="no_comment">sin comentario</string>
+    <string name="email_collision">Este email ya está utilizado</string>
+    <string name="no_desc">La descripción estará disponible pronto</string>
 
     <string-array name="pager_headings">
         <item>Haz pedidos</item>

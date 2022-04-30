@@ -40,8 +40,6 @@ import java.util.Date;
 
 public class ReservaFechaActivity extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener, DatePickerDialog.OnDateSetListener {
 
-    private static final String TAG = "ReservaFechaActivity";
-
     private final FirebaseFirestore fStore = FirebaseFirestore.getInstance();
 
     TextView txtDate;
@@ -66,8 +64,6 @@ public class ReservaFechaActivity extends AppCompatActivity implements PopupMenu
         init();
 
         if (savedInstanceState != null) {
-
-            Log.d(TAG, "onCreate: date: " + date + "\npart: " + part);
 
             date = savedInstanceState.getString(Utils.KEY_DATE);
             part = savedInstanceState.getString(Utils.KEY_PART);
@@ -209,8 +205,6 @@ public class ReservaFechaActivity extends AppCompatActivity implements PopupMenu
     @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
-
-        Log.d(TAG, "onSaveInstanceState: date: " + date + "\npart: " + part);
         outState.putString(Utils.KEY_DATE, date);
         outState.putString(Utils.KEY_PART, part);
     }

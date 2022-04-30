@@ -50,6 +50,8 @@ public class ReservaSender implements Runnable {
     @Override
     public void run() {
 
+        String firstName = userNombre.split(" ")[0];
+
         DocumentReference document = fStore.collection("reservas")
                 .document(date)
                 .collection(part)
@@ -73,9 +75,9 @@ public class ReservaSender implements Runnable {
         document.set(reserva)
                 .addOnSuccessListener(App.executor, aVoid -> mainHandler.post(() -> {
 
-                    mainHandler.post(() -> Toast.makeText(context, context.getString(R.string.solicitud_reserva, userNombre), Toast.LENGTH_LONG).show());
+                    mainHandler.post(() -> Toast.makeText(context, context.getString(R.string.solicitud_reserva, firstName), Toast.LENGTH_LONG).show());
 
-                    // once the document is set, send the message to administrators
+                    // once the document is set, send the message to the administrators
                     fMessaging.getToken()
                             .addOnSuccessListener(App.executor, s ->
                                     fMessaging.send(new RemoteMessage.Builder(App.SENDER_ID + "@fcm.googleapis.com")
