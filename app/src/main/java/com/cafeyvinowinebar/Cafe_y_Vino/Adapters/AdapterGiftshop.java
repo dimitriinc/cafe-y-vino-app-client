@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.cafeyvinowinebar.Cafe_y_Vino.App;
+import com.cafeyvinowinebar.Cafe_y_Vino.OnItemClickListener;
 import com.cafeyvinowinebar.Cafe_y_Vino.POJOs.Gift;
 import com.cafeyvinowinebar.Cafe_y_Vino.R;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
@@ -25,7 +26,7 @@ public class AdapterGiftshop extends FirestoreRecyclerAdapter<Gift, AdapterGifts
     private final FirebaseStorage fStorage = FirebaseStorage.getInstance();
 
     private final Context context;
-    private AdapterCategory.OnItemClickListener listener;
+    private OnItemClickListener listener;
     private final Handler mainHandler;
 
     public AdapterGiftshop(@NonNull FirestoreRecyclerOptions<Gift> options, Context context, Handler mainHandler) {
@@ -77,7 +78,7 @@ public class AdapterGiftshop extends FirestoreRecyclerAdapter<Gift, AdapterGifts
         }
     }
 
-    public void setOnItemClickListener(AdapterCategory.OnItemClickListener listener) {
+    public void setOnItemClickListener(OnItemClickListener listener) {
         this.listener = listener;
     }
 }

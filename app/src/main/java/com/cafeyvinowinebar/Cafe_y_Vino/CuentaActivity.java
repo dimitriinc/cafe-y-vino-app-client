@@ -21,6 +21,7 @@ import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.google.firebase.messaging.RemoteMessage;
 
@@ -37,8 +38,7 @@ public class CuentaActivity extends AppCompatActivity {
     private final FirebaseFirestore fStore = FirebaseFirestore.getInstance();
     private final FirebaseMessaging fMessaging = FirebaseMessaging.getInstance();
 
-    private String userNombre;
-    private String userMesa;
+    private String userNombre, userMesa;
     public TextView txtMontoTotal;
     private RecyclerView recCuenta;
     private AdapterCuenta adapter;
@@ -160,7 +160,6 @@ public class CuentaActivity extends AppCompatActivity {
                 .setQuery(query, ItemCuenta.class)
                 .build();
         adapter = new AdapterCuenta(options);
-        recCuenta.setHasFixedSize(false);
         recCuenta.setAdapter(adapter);
         recCuenta.setLayoutManager(new LinearLayoutManager(this));
 
@@ -172,23 +171,32 @@ public class CuentaActivity extends AppCompatActivity {
 
             if (CuentaTotalPriceSetter.total > 0) {
 
-                fMessaging.getToken().addOnSuccessListener(App.executor, s -> fMessaging.send(new RemoteMessage.Builder(App.SENDER_ID + "@fcm.googleapis.com")
-                        .setMessageId(Utils.getMessageId())
-                        .addData(Utils.KEY_TOKEN, s)
-                        .addData(Utils.KEY_NOMBRE, userNombre)
-                        .addData(Utils.KEY_MESA, userMesa)
-                        .addData(Utils.KEY_MODO, modo)
-                        .addData(Utils.KEY_ACTION, Utils.ACTION_CUENTA)
-                        .addData(Utils.KEY_TYPE, Utils.TO_ADMIN)
-                        .build()))
-                        .addOnSuccessListener(s ->
-                                {
-                                    // after the message is sent, we set CanSendPedidos in the SharedPreference to false
-                                    // which means the user can't send any other bill requests, nor can he send orders from the canasta
-                                    Toast.makeText(CuentaActivity.this, getString(R.string.cuenta_enviada), Toast.LENGTH_SHORT).show();
-                                    Utils.setCanSendPedidos(getBaseContext(), false);
-                                }
-                        );
+                fMessaging.getToken().addOnSuccessListener(App.executor, s ->
+
+                        fStore.collection("administradores").get()
+                                .addOnSuccessListener(App.executor, admins -> {
+
+                                    for (QueryDocumentSnapshot admin : admins) {
+                                        String adminToken = admin.getString(Utils.KEY_TOKEN);
+                                        fMessaging.send(new RemoteMessage.Builder(App.SENDER_ID + "@fcm.googleapis.com")
+                                                .setMessageId(Utils.getMessageId())
+                                                .addData(Utils.KEY_TOKEN, s)
+                                                .addData(Utils.KEY_NOMBRE, userNombre)
+                                                .addData(Utils.KEY_MESA, userMesa)
+                                                .addData(Utils.KEY_MODO, modo)
+                                                .addData(Utils.KEY_ADMIN_TOKEN, adminToken)
+                                                .addData(Utils.KEY_ACTION, Utils.ACTION_CUENTA)
+                                                .addData(Utils.KEY_TYPE, Utils.TO_ADMIN_NEW)
+                                                .build());
+                                    }
+                                }));
+
+
+                // after the messages are sent, we set CanSendPedidos in the SharedPreference to false
+                // which means the user can't send any other bill requests, nor can he send orders from the canasta
+                Toast.makeText(CuentaActivity.this, getString(R.string.cuenta_enviada), Toast.LENGTH_SHORT).show();
+                Utils.setCanSendPedidos(getBaseContext(), false);
+
                 hideEverything();
 
             } else {

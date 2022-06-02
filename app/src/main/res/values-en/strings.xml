@@ -130,5 +130,7 @@
         <item>Simple and quick reservations: choose date, time, and table; and wait for confirmation.</item>
         <item>Collect bonus points from each visit and use them to get various treats</item>
     </string-array>
+    <string name="entry_request_msg">Send an entry request so you can create orders, supervise your bill, and earn bonus points</string>
+    <string name="entry_request_positive_btn">Send the request</string>
 
 </resources>

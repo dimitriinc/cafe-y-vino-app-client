@@ -3,18 +3,17 @@ package com.cafeyvinowinebar.Cafe_y_Vino;
 import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 
 import android.annotation.SuppressLint;
-import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.view.ContextThemeWrapper;
 import android.view.MenuItem;
 import android.view.View;
@@ -172,10 +171,14 @@ public class ReservaFechaActivity extends AppCompatActivity implements PopupMenu
     }
 
     private void showInfo() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(ReservaFechaActivity.this);
-        View view = getLayoutInflater().inflate(R.layout.alert_reserva_fecha_info, null);
-        builder.setView(view);
-        builder.create().show();
+
+        View view = getLayoutInflater().inflate(R.layout.alert_info, null);
+        TextView msg = view.findViewById(R.id.txtInfoMsg);
+        msg.setText(R.string.alert_reserva_fecha_message);
+        new AlertDialog.Builder(ReservaFechaActivity.this)
+                .setView(view)
+                .create()
+                .show();
     }
 
     @Override

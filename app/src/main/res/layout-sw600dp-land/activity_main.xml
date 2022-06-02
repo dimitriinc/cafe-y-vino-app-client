@@ -53,7 +53,7 @@
         android:src="@drawable/ic_door"
         android:visibility="visible"
         app:elevation="20dp"
-        app:fabCustomSize="65dp"
+        app:fabCustomSize="95dp"
         app:fabSize="auto"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -61,7 +61,7 @@
         app:layout_constraintStart_toEndOf="@+id/imgBtnGiftshop"
         app:layout_constraintTop_toBottomOf="@+id/imgBtnReserv"
         app:layout_constraintVertical_bias="0.111"
-        app:maxImageSize="40dp" />
+        app:maxImageSize="60dp" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabCanastaMain"
@@ -70,14 +70,14 @@
         android:src="@drawable/ic_canasta"
         android:visibility="gone"
         app:elevation="20dp"
-        app:fabCustomSize="65dp"
+        app:fabCustomSize="85dp"
         app:layout_constraintBottom_toTopOf="@+id/imgBtnReserv"
         app:layout_constraintEnd_toStartOf="@+id/imgBtnMenu"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
-        app:maxImageSize="40dp" />
+        app:maxImageSize="55dp" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabCuentaMain"
@@ -86,14 +86,14 @@
         android:clickable="true"
         android:focusable="true"
         app:elevation="20dp"
-        app:fabCustomSize="65dp"
+        app:fabCustomSize="85dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.669"
         app:layout_constraintStart_toEndOf="@+id/imgBtnGiftshop"
         app:layout_constraintTop_toBottomOf="@+id/imgBtnReserv"
         app:layout_constraintVertical_bias="0.111"
-        app:maxImageSize="40dp"
+        app:maxImageSize="55dp"
         app:srcCompat="@drawable/ic_menu"
         android:visibility="gone"/>
 
@@ -104,14 +104,14 @@
         android:src="@drawable/ic_user"
         android:visibility="visible"
         app:elevation="20dp"
-        app:fabCustomSize="65dp"
+        app:fabCustomSize="85dp"
         app:layout_constraintBottom_toTopOf="@+id/imgBtnReserv"
         app:layout_constraintEnd_toStartOf="@+id/imgBtnMenu"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
-        app:maxImageSize="40dp" />
+        app:maxImageSize="55dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

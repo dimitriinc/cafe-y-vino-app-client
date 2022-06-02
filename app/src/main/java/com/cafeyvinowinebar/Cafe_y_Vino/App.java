@@ -29,7 +29,7 @@ public class App extends Application {
     public static final String DATOS = "channelDatos";
     public static final String SENDER_ID = "1096226926741";
     private static final int NUMBER_OF_CORES = Runtime.getRuntime().availableProcessors();
-    public static final ExecutorService executor = Executors.newFixedThreadPool(NUMBER_OF_CORES);
+    public static final ExecutorService executor = Executors.newFixedThreadPool(NUMBER_OF_CORES * 2);
 
     @Override
     public void onCreate() {

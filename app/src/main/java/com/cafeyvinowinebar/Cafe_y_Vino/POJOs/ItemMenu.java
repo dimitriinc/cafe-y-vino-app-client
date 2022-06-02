@@ -1,14 +1,18 @@
 package com.cafeyvinowinebar.Cafe_y_Vino.POJOs;
 
+import androidx.annotation.NonNull;
+
+import java.io.Serializable;
+
 /**
  * Represents a menu item, as it is stored in the menu collection in the database
  * Model for the AdapterCategory
  */
 
-public class ItemMenu {
+public class ItemMenu implements Serializable {
 
     private String nombre,icon, descripcion, precio, image, categoria;
-    private boolean isPresent;
+    private Boolean isPresent;
 
     public ItemMenu() {}
 
@@ -60,11 +64,25 @@ public class ItemMenu {
         this.categoria = categoria;
     }
 
-    public boolean isPresent() {
+    public Boolean isPresent() {
         return isPresent;
     }
 
-    public void setPresent(boolean present) {
+    public void setPresent(Boolean present) {
         isPresent = present;
+    }
+
+    @NonNull
+    @Override
+    public String toString() {
+        return "ItemMenu{" +
+                "nombre='" + nombre + '\'' +
+                ", icon='" + icon + '\'' +
+                ", descripcion='" + descripcion + '\'' +
+                ", precio='" + precio + '\'' +
+                ", image='" + image + '\'' +
+                ", categoria='" + categoria + '\'' +
+                ", isPresent=" + isPresent +
+                '}';
     }
 }

@@ -70,11 +70,15 @@ public class GiftShopActivity extends AppCompatActivity {
                 imgGastar.setOnClickListener(v -> {
 
                     // the user is able to open the dialog fragment only in the 'present' status
-                    if (value.getBoolean(Utils.IS_PRESENT)) {
+                    if (Boolean.TRUE.equals(value.getBoolean(Utils.IS_PRESENT))) {
+
+                        Utils.setIsUserPresent(GiftShopActivity.this, true);
+
                         FragmentManager manager = getSupportFragmentManager();
                         fragment = new GiftshopDialogFragment(userId, GiftShopActivity.this, mainHandler);
                         fragment.show(manager, Utils.TAG);
                     } else {
+                        Utils.setCanSendPedidos(GiftShopActivity.this, false);
                         Toast.makeText(GiftShopActivity.this, getString(R.string.regalo_not_present_rejection), Toast.LENGTH_SHORT).show();
                     }
 

@@ -11,10 +11,13 @@ import android.widget.Toast;
 import com.cafeyvinowinebar.Cafe_y_Vino.App;
 import com.cafeyvinowinebar.Cafe_y_Vino.R;
 import com.cafeyvinowinebar.Cafe_y_Vino.Utils;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.Timestamp;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.google.firebase.messaging.RemoteMessage;
 
@@ -76,29 +79,32 @@ public class GiftSender implements Runnable {
                                 gift.put(Utils.PRECIO, precio);
                                 gift.put(Utils.SERVIDO, false);
                                 gift.put(Utils.KEY_TIMESTAMP, new Timestamp(new Date()));
-                                fStore.collection("pedidos").document(fecha).collection("regalos")
-                                        .add(gift)
-                                        .addOnSuccessListener(App.executor, documentReference -> {
+                                fStore.collection("pedidos").document(fecha).collection("regalos").add(gift);
 
-                                            // when the object is stored, we notify the Administrator App
-                                            // and subtract the price of the gift from the user's bonus points
-                                            fMessaging.send(new RemoteMessage.Builder(App.SENDER_ID + "@fcm.googleapis.com")
-                                                    .setMessageId(Utils.getMessageId())
-                                                    .addData(Utils.KEY_REGALO, snapshot.getId())
-                                                    .addData(Utils.KEY_ACTION, Utils.ACTION_REGALO)
-                                                    .addData(Utils.KEY_MESA, mesa)
-                                                    .addData(Utils.KEY_TYPE, Utils.TO_ADMIN)
-                                                    .addData(Utils.KEY_NOMBRE, nombre)
-                                                    .build());
-                                            userReference.update(Utils.KEY_BONOS, bonos - precio);
-                                        })
-                                        .addOnFailureListener(e -> Toast.makeText(context, context.getString(R.string.error), Toast.LENGTH_SHORT).show());
+                                // get the admins' addresses and send each of them a message
+                                fStore.collection("administradores").get()
+                                        .addOnSuccessListener(App.executor, queryDocumentSnapshots -> {
+
+                                            for (QueryDocumentSnapshot admin : queryDocumentSnapshots) {
+                                                String adminToken = admin.getString(Utils.KEY_TOKEN);
+                                                fMessaging.send(new RemoteMessage.Builder(App.SENDER_ID + "@fcm.googleapis.com")
+                                                        .setMessageId(Utils.getMessageId())
+                                                        .addData(Utils.KEY_REGALO, snapshot.getId())
+                                                        .addData(Utils.KEY_ACTION, Utils.ACTION_REGALO)
+                                                        .addData(Utils.KEY_MESA, mesa)
+                                                        .addData(Utils.KEY_ADMIN_TOKEN, adminToken)
+                                                        .addData(Utils.KEY_TYPE, Utils.TO_ADMIN_NEW)
+                                                        .addData(Utils.KEY_NOMBRE, nombre)
+                                                        .build());
+                                            }
+                                        });
+
+                                // subtract the price of the gift from the user's bonus points
+                                userReference.update(Utils.KEY_BONOS, bonos - precio);
 
                             }
                         })
-                        .setNegativeButton("No", (dialog, which) -> {
-                        })
-                        .setCancelable(true);
+                        .setNegativeButton("No", (dialog, which) -> dialog.dismiss());
 
                 mainHandler.post(() -> {
                     AlertDialog dialog = builder.create();

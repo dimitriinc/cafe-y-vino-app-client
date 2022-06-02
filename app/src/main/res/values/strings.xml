@@ -1,5 +1,4 @@
-<resources xmlns:tools="http://schemas.android.com/tools"
-    tools:ignore="Typos">
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="Typos">
 
     <string name="app_name" translatable="false">Cafe y Vino</string>
 
@@ -143,6 +142,8 @@
     <string name="no_comment">sin comentario</string>
     <string name="email_collision">Este email ya está utilizado</string>
     <string name="no_desc">La descripción estará disponible pronto</string>
+    <string name="entry_request_msg">Envía una solicitud de entrada cuando estás en el restaurante para poder crear pedidos, supervisar tu cuenta y ganar puntos de bono</string>
+    <string name="entry_request_positive_btn">Enviar la solicitud</string>
 
     <string-array name="pager_headings">
         <item>Haz pedidos</item>

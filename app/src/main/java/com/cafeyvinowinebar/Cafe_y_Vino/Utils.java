@@ -41,7 +41,6 @@ public class Utils {
     public static final String KEY_COMENTARIO = "comentario";
     public static final String KEY_PARTE = "parte";
     public static final String KEY_PART = "part";
-    public static final String KEY_CATEGORY = "category";
     public static final String KEY_CATEGORIA = "categoria";
     public static final String TAG = "tag";
     public static final String KEY_DATE = "date";
@@ -49,16 +48,15 @@ public class Utils {
     public static final String KEY_NAME = "name";
     public static final String KEY_BONO = "bono";
     public static final String KEY_FECHA_DE_NACIMIENTO = "fecha de nacimiento";
-    public static final String KEY_IMAGE = "image";
     public static final String KEY_ICON = "icon";
-    public static final String KEY_DESCRIPCION = "descripcion";
     public static final String KEY_LLEGADO = "llegado";
     public static final String KEY_TIMESTAMP = "timestamp";
     public static final String KEY_CONFIRMADO = "confirmado";
     public static final String KEY_META_ID = "metaDocId";
+    public static final String KEY_ADMIN_TOKEN = "adminToken";
 
     // values
-    public static final String TO_ADMIN = "toAdmin";
+    public static final String TO_ADMIN_NEW = "toAdminNew";
     public static final String BARRA = "barra";
     public static final String IS_PRESENT = "isPresent";
     public static final String DATE_FORMAT = "dd-MM-yyyy";
@@ -77,7 +75,6 @@ public class Utils {
     public static final String SERVIDO_COCINA = "servidoCocina";
     public static final String KEY_IS_EXPANDED = "isExpanded";
     public static final String KEY_BONOS = "bonos";
-    public static final String PRICE = "price";
     public static final String TELEFONO = "telefono";
     public static final String TELEFONO_ACCENT = "teléfono";
     public static final String CAT_PATH = "catPath";
@@ -98,6 +95,13 @@ public class Utils {
         PreferenceManager.getDefaultSharedPreferences(context)
                 .edit()
                 .putBoolean(CAN_SEND_PEDIDOS, canSendPedidos)
+                .apply();
+    }
+
+    public static void setIsUserPresent(Context context, boolean isPresent) {
+        PreferenceManager.getDefaultSharedPreferences(context)
+                .edit()
+                .putBoolean(IS_PRESENT, isPresent)
                 .apply();
     }
 

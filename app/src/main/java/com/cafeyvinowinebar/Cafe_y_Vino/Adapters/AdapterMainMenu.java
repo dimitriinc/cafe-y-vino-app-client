@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.cafeyvinowinebar.Cafe_y_Vino.App;
+import com.cafeyvinowinebar.Cafe_y_Vino.OnItemClickListener;
 import com.cafeyvinowinebar.Cafe_y_Vino.POJOs.MenuCategory;
 import com.cafeyvinowinebar.Cafe_y_Vino.R;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
@@ -23,7 +24,7 @@ import com.google.firebase.storage.StorageReference;
 public class AdapterMainMenu extends FirestoreRecyclerAdapter<MenuCategory, AdapterMainMenu.ViewHolder> {
 
     private final FirebaseStorage storage = FirebaseStorage.getInstance();
-    private AdapterCategory.OnItemClickListener listener;
+    private OnItemClickListener listener;
     private final Handler mainHandler;
     private final Context context;
 
@@ -76,7 +77,7 @@ public class AdapterMainMenu extends FirestoreRecyclerAdapter<MenuCategory, Adap
         }
     }
 
-    public void setOnItemClickListener(AdapterCategory.OnItemClickListener listener) {
+    public void setOnItemClickListener(OnItemClickListener listener) {
         this.listener = listener;
     }
 }

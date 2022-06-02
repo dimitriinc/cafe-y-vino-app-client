@@ -21,12 +21,14 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
+import java.util.ArrayList;
+
 public class AdapterCategory extends FirestoreRecyclerAdapter<ItemMenu, AdapterCategory.ViewHolder> {
 
     private final FirebaseStorage storage = FirebaseStorage.getInstance();
 
     private OnItemLongClickListener longListener;
-    private OnItemClickListener listener;
+    private OnCategoryItemClickListener listener;
     private final Handler mainHandler;
     private final Context context;
 
@@ -67,9 +69,10 @@ public class AdapterCategory extends FirestoreRecyclerAdapter<ItemMenu, AdapterC
             });
 
             itemView.setOnClickListener(v -> {
+
                 int position = getAbsoluteAdapterPosition();
                 if (position != RecyclerView.NO_POSITION && listener != null) {
-                    listener.onItemClick(getSnapshots().getSnapshot(position), position);
+                    listener.onItemClick(getSnapshots().getSnapshot(position), position, new ArrayList<>(getSnapshots()));
                 }
             });
         }
@@ -99,11 +102,11 @@ public class AdapterCategory extends FirestoreRecyclerAdapter<ItemMenu, AdapterC
         this.longListener = longListener;
     }
 
-    public interface OnItemClickListener {
-        void onItemClick(DocumentSnapshot documentSnapshot, int position);
+    public interface OnCategoryItemClickListener {
+        void onItemClick(DocumentSnapshot documentSnapshot, int position, ArrayList<ItemMenu> products);
     }
 
-    public void setOnItemClickListener(OnItemClickListener listener) {
+    public void setOnItemClickListener(OnCategoryItemClickListener listener) {
         this.listener = listener;
     }
 }

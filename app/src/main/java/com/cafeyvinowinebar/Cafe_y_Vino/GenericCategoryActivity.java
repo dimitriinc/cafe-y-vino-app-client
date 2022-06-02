@@ -18,14 +18,17 @@ import android.widget.Toast;
 import com.cafeyvinowinebar.Cafe_y_Vino.Adapters.AdapterCategory;
 import com.cafeyvinowinebar.Cafe_y_Vino.POJOs.ItemMenu;
 import com.cafeyvinowinebar.Cafe_y_Vino.POJOs.ItemCanasta;
-import com.cafeyvinowinebar.Cafe_y_Vino.Runnables.ToGenericItemSender;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
+import java.util.ArrayList;
 import java.util.Objects;
 
 /**
@@ -67,21 +70,24 @@ public class GenericCategoryActivity extends AppCompatActivity {
         Intent intent = getIntent();
         if (intent != null) {
             catPath = intent.getStringExtra(Utils.CAT_PATH);
-            if (!catPath.equals("")) {
-                Query query = fStore.collection(catPath)
-                        .whereEqualTo(Utils.IS_PRESENT, true);
-                FirestoreRecyclerOptions<ItemMenu> options = new FirestoreRecyclerOptions.Builder<ItemMenu>()
-                        .setQuery(query, ItemMenu.class)
-                        .build();
-                adapter = new AdapterCategory(options, mainHandler, GenericCategoryActivity.this);
-                recGenCat.setAdapter(adapter);
-                recGenCat.setLayoutManager(new LinearLayoutManager(this));
-                adapter.setOnItemClickListener((documentSnapshot, position) ->
 
-                        // on click we go to the GenericItemActivity via a runnable that retrieves data about the clicked product
-                        // to pass it to the GenericItemActivity where it gets displayed
-                        App.executor.submit(new ToGenericItemSender(documentSnapshot, GenericCategoryActivity.this, getBaseContext())));
-            }
+            Query query = fStore.collection(catPath)
+                    .whereEqualTo(Utils.IS_PRESENT, true)
+                    .orderBy(Utils.KEY_NOMBRE);
+
+            FirestoreRecyclerOptions<ItemMenu> options = new FirestoreRecyclerOptions.Builder<ItemMenu>()
+                    .setQuery(query, ItemMenu.class)
+                    .build();
+            adapter = new AdapterCategory(options, mainHandler, GenericCategoryActivity.this);
+            recGenCat.setAdapter(adapter);
+            recGenCat.setLayoutManager(new LinearLayoutManager(this));
+            Bundle bundle = new Bundle();
+            adapter.setOnItemClickListener((documentSnapshot, position, products) -> {
+
+                    bundle.putSerializable(Utils.KEY_CATEGORIA, products);
+                    startActivity(MenuProductActivity.newIntent(GenericCategoryActivity.this, bundle, documentSnapshot.getString(Utils.KEY_NOMBRE)));
+            });
+
         }
 
         fabHome.setOnClickListener(v -> startActivity(new Intent(GenericCategoryActivity.this, MainActivity.class)));
@@ -104,7 +110,9 @@ public class GenericCategoryActivity extends AppCompatActivity {
                     if (value != null && value.exists()) {
                         userNombre = value.getString(Utils.KEY_NOMBRE);
                         userMesa = value.getString(Utils.KEY_MESA);
-                        if (value.getBoolean(Utils.IS_PRESENT)) {
+                        if (Boolean.TRUE.equals(value.getBoolean(Utils.IS_PRESENT))) {
+
+                            Utils.setIsUserPresent(GenericCategoryActivity.this, true);
 
                             // the user is present, he can go to the CanastaActivity
                             fabHome.setVisibility(View.GONE);
@@ -129,11 +137,14 @@ public class GenericCategoryActivity extends AppCompatActivity {
                             fabCanasta.setOnClickListener(v -> startActivity(CanastaActivity.newIntent(getBaseContext())));
 
                             fabInfo.setOnClickListener(v -> {
-                                final AlertDialog.Builder builder = new AlertDialog.Builder(v.getContext());
-                                View view = getLayoutInflater().inflate(R.layout.alert_generic_cat_info, null);
-                                builder.setView(view);
-                                builder.setCancelable(true);
-                                builder.create().show();
+
+                                View view = getLayoutInflater().inflate(R.layout.alert_info, null);
+                                TextView msg = view.findViewById(R.id.txtInfoMsg);
+                                msg.setText(R.string.message_gc_info);
+                                new AlertDialog.Builder(GenericCategoryActivity.this)
+                                        .setView(view)
+                                        .create().show();
+
                                 fabCanasta.hide();
                                 fabInfo.hide();
                                 txtCanasta.setVisibility(View.GONE);
@@ -152,6 +163,7 @@ public class GenericCategoryActivity extends AppCompatActivity {
 
                             // in the 'not present' status the user sees only the Home button
                             Utils.setCanSendPedidos(getBaseContext(), true);
+                            Utils.setIsUserPresent(GenericCategoryActivity.this, false);
                             fabParent.setVisibility(View.GONE);
                             fabHome.setVisibility(View.VISIBLE);
                         }
@@ -204,7 +216,7 @@ public class GenericCategoryActivity extends AppCompatActivity {
             viewModel.insert(new ItemCanasta(snapshot.getString(Utils.KEY_NOMBRE),
                     snapshot.getString(Utils.KEY_CATEGORIA),
                     snapshot.getString(Utils.KEY_ICON),
-                    Long.parseLong(snapshot.getString(Utils.PRECIO))));
+                    Long.parseLong(Objects.requireNonNull(snapshot.getString(Utils.PRECIO)))));
         }
     }
 }

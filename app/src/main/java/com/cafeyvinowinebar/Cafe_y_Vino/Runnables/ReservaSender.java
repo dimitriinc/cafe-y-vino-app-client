@@ -7,9 +7,12 @@ import android.widget.Toast;
 import com.cafeyvinowinebar.Cafe_y_Vino.App;
 import com.cafeyvinowinebar.Cafe_y_Vino.R;
 import com.cafeyvinowinebar.Cafe_y_Vino.Utils;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.Timestamp;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.google.firebase.messaging.RemoteMessage;
 
@@ -73,28 +76,36 @@ public class ReservaSender implements Runnable {
 
         // set it on the document
         document.set(reserva)
-                .addOnSuccessListener(App.executor, aVoid -> mainHandler.post(() -> {
+                .addOnSuccessListener(App.executor, aVoid -> {
 
                     mainHandler.post(() -> Toast.makeText(context, context.getString(R.string.solicitud_reserva, firstName), Toast.LENGTH_LONG).show());
 
                     // once the document is set, send the message to the administrators
                     fMessaging.getToken()
                             .addOnSuccessListener(App.executor, s ->
-                                    fMessaging.send(new RemoteMessage.Builder(App.SENDER_ID + "@fcm.googleapis.com")
-                                            .setMessageId(Utils.getMessageId())
-                                            .addData(Utils.KEY_TOKEN, s)
-                                            .addData(Utils.KEY_NOMBRE, userNombre)
-                                            .addData(Utils.KEY_ACTION, Utils.ACTION_RESERVA)
-                                            .addData(Utils.KEY_FECHA, date)
-                                            .addData(Utils.KEY_HORA, hora)
-                                            .addData(Utils.KEY_PAX, pax)
-                                            .addData(Utils.KEY_MESA, mesa)
-                                            .addData(Utils.KEY_PARTE, part)
-                                            .addData(Utils.KEY_TYPE, Utils.TO_ADMIN)
-                                            .addData(Utils.KEY_COMENTARIO, comment)
-                                            .build()));
-                }))
-                .addOnFailureListener(App.executor, e -> mainHandler.post(() ->
-                        Toast.makeText(context, context.getString(R.string.error), Toast.LENGTH_SHORT).show()));
+                                    fStore.collection("administradores").get()
+                                            .addOnSuccessListener(App.executor, queryDocumentSnapshots -> {
+
+                                                for (QueryDocumentSnapshot admin : queryDocumentSnapshots) {
+                                                    String adminToken = admin.getString(Utils.KEY_TOKEN);
+                                                    fMessaging.send(new RemoteMessage.Builder(App.SENDER_ID + "@fcm.googleapis.com")
+                                                            .setMessageId(Utils.getMessageId())
+                                                            .addData(Utils.KEY_TOKEN, s)
+                                                            .addData(Utils.KEY_NOMBRE, userNombre)
+                                                            .addData(Utils.KEY_ACTION, Utils.ACTION_RESERVA)
+                                                            .addData(Utils.KEY_FECHA, date)
+                                                            .addData(Utils.KEY_HORA, hora)
+                                                            .addData(Utils.KEY_PAX, pax)
+                                                            .addData(Utils.KEY_ADMIN_TOKEN, adminToken)
+                                                            .addData(Utils.KEY_MESA, mesa)
+                                                            .addData(Utils.KEY_PARTE, part)
+                                                            .addData(Utils.KEY_TYPE, Utils.TO_ADMIN_NEW)
+                                                            .addData(Utils.KEY_COMENTARIO, comment)
+                                                            .build());
+                                                }
+                                            }));
+
+                });
+
     }
 }

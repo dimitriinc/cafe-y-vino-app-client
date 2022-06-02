@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bkg_menu_product_fragment"
+    tools:context=".MenuProductFragment">
+
+    <ScrollView
+        android:id="@+id/scroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginVertical="40dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="10dp">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/GiImgCard"
+                android:layout_width="450dp"
+                android:layout_height="450dp"
+                android:backgroundTint="@color/for_fabs"
+                android:layout_marginTop="40dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/imgItem"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/logo_mini" />
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_page_left"
+                app:layout_constraintTop_toBottomOf="@+id/GiImgCard"
+                app:layout_constraintStart_toStartOf="@+id/GiImgCard"
+                android:layout_marginTop="30dp"
+                android:layout_marginStart="20dp"
+                app:tint="@color/cream"
+                android:id="@+id/arrow_left"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_page_right"
+                app:tint="@color/cream"
+                android:id="@+id/arrow_right"
+                app:layout_constraintTop_toBottomOf="@+id/GiImgCard"
+                app:layout_constraintEnd_toEndOf="@+id/GiImgCard"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="30dp"
+                />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/GiDescCard"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:backgroundTint="@color/for_fabs"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="10dp"
+                app:layout_constraintEnd_toEndOf="@+id/GiImgCard"
+                app:layout_constraintStart_toStartOf="@+id/GiImgCard"
+                app:layout_constraintTop_toBottomOf="@+id/txtItemName">
+
+                <RelativeLayout
+                    android:id="@+id/RlDesc"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:id="@+id/txtDesc"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:gravity="start"
+                        android:textSize="18sp"
+                        tools:text="sdlakfjdsklafjsldfjklsadjfksl ldskfj ksdflk jsdkf ljsdk dslkfj sdlkfj sdklf jsa
+sdklfj dslkfj sdlkf dskl jdkldksjlfk jkljds f" />
+
+                </RelativeLayout>
+
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/precioCard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:backgroundTint="@color/for_fabs"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="15dp"
+                app:layout_constraintEnd_toEndOf="@+id/txtPrecio"
+                app:layout_constraintStart_toStartOf="@+id/txtPrecio"
+                app:layout_constraintTop_toBottomOf="@+id/txtPrecio">
+
+
+                <TextView
+                    android:id="@+id/txtPrecioInt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/aladin"
+                    android:padding="10dp"
+                    tools:text="23"
+                    android:textSize="20sp"
+                    tools:layout_editor_absoluteX="359dp"
+                    tools:layout_editor_absoluteY="564dp" />
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:id="@+id/txtPrecio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:fontFamily="@font/aladin"
+                android:text="@string/cuenta_precio"
+                android:textSize="25sp"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="@+id/txtItemName"
+                app:layout_constraintStart_toStartOf="@+id/txtItemName"
+                app:layout_constraintTop_toBottomOf="@+id/GiDescCard" />
+
+
+            <TextView
+                android:id="@+id/txtItemName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="60dp"
+                android:fontFamily="@font/aladin"
+                tools:text="dsafdsafsa"
+                android:textSize="28sp"
+                app:layout_constraintEnd_toEndOf="@+id/GiImgCard"
+                app:layout_constraintStart_toStartOf="@+id/GiImgCard"
+                app:layout_constraintTop_toBottomOf="@+id/GiImgCard" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </ScrollView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabAdd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/fabExpand"
+            android:layout_alignEnd="@+id/fabExpand"
+            android:layout_margin="16dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:src="@drawable/ic_add"
+            android:visibility="gone"
+            app:elevation="20dp"
+            app:layout_constraintBottom_toTopOf="@+id/fabExpand"
+            app:layout_constraintEnd_toEndOf="@+id/fabExpand"
+            app:layout_constraintStart_toStartOf="@+id/fabExpand" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabCanasta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:src="@drawable/ic_canasta"
+            android:visibility="gone"
+            app:elevation="20dp"
+            app:layout_constraintBottom_toTopOf="@+id/fabAdd"
+            app:layout_constraintEnd_toEndOf="@+id/fabAdd"
+            app:layout_constraintStart_toStartOf="@+id/fabAdd" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabExpand"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="40dp"
+            android:layout_marginBottom="40dp"
+            android:src="@drawable/ic_expand"
+            android:visibility="gone"
+            app:elevation="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabGiHome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="40dp"
+            android:layout_marginBottom="40dp"
+            android:src="@drawable/ic_home"
+            android:visibility="visible"
+            app:elevation="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabMainMenu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:src="@drawable/ic_menu"
+            android:visibility="gone"
+            app:elevation="20dp"
+            app:layout_constraintBottom_toTopOf="@+id/fabCanasta"
+            app:layout_constraintEnd_toEndOf="@+id/fabCanasta"
+            app:layout_constraintStart_toStartOf="@+id/fabCanasta" />
+
+        <TextView
+            android:id="@+id/txtAgregar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/shape_fab_txt"
+            android:fontFamily="@font/aladin"
+            android:padding="10dp"
+            android:text="@string/agregar_canasta"
+            android:textSize="24sp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/fabAdd"
+            app:layout_constraintEnd_toStartOf="@+id/fabAdd"
+            app:layout_constraintTop_toTopOf="@+id/fabAdd" />
+
+        <TextView
+            android:id="@+id/txtCanasta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/shape_fab_txt"
+            android:fontFamily="@font/aladin"
+            android:padding="10dp"
+            android:text="@string/canasta"
+            android:textSize="24sp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/fabCanasta"
+            app:layout_constraintEnd_toStartOf="@+id/fabCanasta"
+            app:layout_constraintTop_toTopOf="@+id/fabCanasta" />
+
+        <TextView
+            android:id="@+id/txtMenu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/shape_fab_txt"
+            android:fontFamily="@font/aladin"
+            android:padding="10dp"
+            android:text="@string/menu"
+            android:textSize="24sp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/fabMainMenu"
+            app:layout_constraintEnd_toStartOf="@+id/fabMainMenu"
+            app:layout_constraintTop_toTopOf="@+id/fabMainMenu" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</RelativeLayout>

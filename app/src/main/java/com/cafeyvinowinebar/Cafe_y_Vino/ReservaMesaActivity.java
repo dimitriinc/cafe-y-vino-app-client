@@ -1,10 +1,10 @@
 package com.cafeyvinowinebar.Cafe_y_Vino;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
-import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -74,11 +74,12 @@ public class ReservaMesaActivity extends AppCompatActivity implements PopupMenu.
         imgSala.setOnClickListener(v -> startActivity(PlanActivity.newIntent(getBaseContext())));
 
         imgInfo.setOnClickListener(v -> {
-            AlertDialog.Builder builder = new AlertDialog.Builder(ReservaMesaActivity.this);
-            View view = getLayoutInflater().inflate(R.layout.alert_reserva_mesa_info, null);
-            builder.setView(view);
-            builder.setCancelable(true);
-            builder.create().show();
+            View view = getLayoutInflater().inflate(R.layout.alert_info, null);
+            TextView msg = view.findViewById(R.id.txtInfoMsg);
+            msg.setText(R.string.alert_reserva_mesa_message);
+            new AlertDialog.Builder(ReservaMesaActivity.this)
+                    .setView(view)
+                    .create().show();
         });
 
         // to already chosen day and part we add the mesa and pass the three values to the ReservaFinActivity with the intent

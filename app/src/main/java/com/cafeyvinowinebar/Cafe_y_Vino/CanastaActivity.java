@@ -115,11 +115,13 @@ public class CanastaActivity extends AppCompatActivity {
         fabInicio.setOnClickListener(v -> startActivity(new Intent(getBaseContext(), MainActivity.class)));
 
         fabInfo.setOnClickListener(v -> {
-            final AlertDialog.Builder builder = new AlertDialog.Builder(v.getContext());
-            View view = getLayoutInflater().inflate(R.layout.alert_canasta_info, null);
-            builder.setView(view);
-            builder.setCancelable(true);
-            builder.create().show();
+
+            View view = getLayoutInflater().inflate(R.layout.alert_info, null);
+            TextView msg = view.findViewById(R.id.txtInfoMsg);
+            msg.setText(R.string.message_canasta_info);
+            new AlertDialog.Builder(CanastaActivity.this)
+                    .setView(view)
+                    .create().show();
             hideEverything();
         });
     }
