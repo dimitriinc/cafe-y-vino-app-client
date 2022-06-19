@@ -30,22 +30,31 @@ public class GiftshopDialogFragment extends DialogFragment {
     private final FirebaseFirestore fStore = FirebaseFirestore.getInstance();
 
     private AdapterGiftshop adapter;
-    private final String userId;
-    private final Context context;
-    private final Handler mainHandler;
+    private String userId;
+    private Handler mainHandler;
 
-    public GiftshopDialogFragment(String userId, Context context, Handler mainHandler) {
+    public GiftshopDialogFragment(String userId, Handler mainHandler) {
         this.userId = userId;
-        this.context = context;
         this.mainHandler = mainHandler;
     }
 
+    public GiftshopDialogFragment() {}
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if (savedInstanceState != null) {
+            userId = savedInstanceState.getString(Utils.KEY_USER_ID);
+            mainHandler = new Handler(requireActivity().getMainLooper());
+        }
+    }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         String fecha = Utils.getCurrentDate();
+        Context context = requireContext();
 
         RecyclerView recGiftshop = new RecyclerView(context);
         Query query = fStore.collection("regalos").whereEqualTo(Utils.IS_PRESENT, true);
@@ -75,14 +84,14 @@ public class GiftshopDialogFragment extends DialogFragment {
     }
 
     @Override
-    public void onPause() {
-        super.onPause();
-        dismiss();
-    }
-
-    @Override
     public void onStop() {
         super.onStop();
         adapter.stopListening();
+    }
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString(Utils.KEY_USER_ID, userId);
     }
 }

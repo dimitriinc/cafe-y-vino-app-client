@@ -61,15 +61,14 @@
         android:id="@+id/fabParent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="26dp"
+        android:layout_marginEnd="86dp"
+        android:layout_marginBottom="26dp"
         android:clickable="true"
         android:focusable="true"
         android:src="@drawable/ic_expand"
         app:elevation="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.37"
-        app:layout_constraintStart_toStartOf="@+id/guideline17" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
         android:id="@+id/txtBack"
@@ -173,12 +172,5 @@
         app:layout_constraintBottom_toBottomOf="@+id/fabInicio"
         app:layout_constraintEnd_toStartOf="@+id/fabInicio"
         app:layout_constraintTop_toTopOf="@+id/fabInicio" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline17"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="771dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

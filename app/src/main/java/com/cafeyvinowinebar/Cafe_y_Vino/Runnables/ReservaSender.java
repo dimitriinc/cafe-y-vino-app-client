@@ -53,7 +53,8 @@ public class ReservaSender implements Runnable {
     @Override
     public void run() {
 
-        String firstName = userNombre.split(" ")[0];
+        String firstName = userNombre.split(" ")[0].toLowerCase();
+        String firstNameCapitalized = firstName.substring(0, 1).toUpperCase() + firstName.substring(1);
 
         DocumentReference document = fStore.collection("reservas")
                 .document(date)
@@ -78,7 +79,7 @@ public class ReservaSender implements Runnable {
         document.set(reserva)
                 .addOnSuccessListener(App.executor, aVoid -> {
 
-                    mainHandler.post(() -> Toast.makeText(context, context.getString(R.string.solicitud_reserva, firstName), Toast.LENGTH_LONG).show());
+                    mainHandler.post(() -> Toast.makeText(context, context.getString(R.string.solicitud_reserva, firstNameCapitalized), Toast.LENGTH_LONG).show());
 
                     // once the document is set, send the message to the administrators
                     fMessaging.getToken()

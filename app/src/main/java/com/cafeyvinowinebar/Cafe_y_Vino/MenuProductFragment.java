@@ -35,22 +35,37 @@ import java.util.Objects;
 
 public class MenuProductFragment extends Fragment {
 
+    public static final String PRODUCT = "key_product";
+    public static final String POSITION = "key_position";
+    public static final String SIZE = "key_set_size";
+
     private final FirebaseStorage fStorage = FirebaseStorage.getInstance();
 
-    private final CanastaViewModel viewModel;
+    private CanastaViewModel viewModel;
     private FloatingActionButton fabCanasta, fabAdd, fabMainMenu, fabExpand, fabHome;
     private ImageView imgItem, imgLeft, imgRight;
     private TextView txtDesc, txtPrecio, txtPrecioInt, txtItemName, txtAgregar, txtMenu, txtCanasta;
-    private final ItemMenu product;
+    private ItemMenu product;
     private boolean isAllVisible;
-    private boolean isUserPresent;
-    private final int position, setSize;
+    private int position, setSize;
 
-    public MenuProductFragment(ItemMenu product, CanastaViewModel viewModel, int position, int setSize) {
+    public MenuProductFragment(ItemMenu product, int position, int setSize) {
         this.product = product;
-        this.viewModel = viewModel;
         this.position = position;
         this.setSize = setSize;
+    }
+
+    public MenuProductFragment() {}
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        viewModel = new ViewModelProvider(requireActivity()).get(CanastaViewModel.class);
+        if (savedInstanceState != null) {
+            product = (ItemMenu) savedInstanceState.getSerializable(PRODUCT);
+            position = savedInstanceState.getInt(POSITION);
+            setSize = savedInstanceState.getInt(SIZE);
+        }
     }
 
     @Nullable
@@ -88,7 +103,8 @@ public class MenuProductFragment extends Fragment {
 
         if (position == 0) {
             imgLeft.setVisibility(View.GONE);
-        } else if (position == setSize - 1) {
+        }
+        if (position == setSize - 1) {
             imgRight.setVisibility(View.GONE);
         }
 
@@ -130,7 +146,7 @@ public class MenuProductFragment extends Fragment {
 
     private void init(View view) {
 
-        isUserPresent = PreferenceManager.getDefaultSharedPreferences(requireContext())
+        boolean isUserPresent = PreferenceManager.getDefaultSharedPreferences(requireContext())
                 .getBoolean(Utils.IS_PRESENT, false);
 
         fabCanasta = view.findViewById(R.id.fabCanasta);
@@ -169,5 +185,13 @@ public class MenuProductFragment extends Fragment {
         txtCanasta.setVisibility(View.GONE);
         fabExpand.setImageResource(R.drawable.ic_expand);
         isAllVisible = false;
+    }
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putSerializable(PRODUCT, product);
+        outState.putInt(POSITION, position);
+        outState.putInt(SIZE, setSize);
     }
 }

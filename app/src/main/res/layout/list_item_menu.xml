@@ -6,9 +6,8 @@
     android:id="@+id/parentMenu"
     app:cardCornerRadius="10dp"
     app:cardElevation="20dp"
-    android:layout_marginLeft="88dp"
-    android:layout_marginRight="88dp"
     android:layout_marginTop="20dp"
+    android:layout_marginHorizontal="20dp"
     android:layout_marginBottom="10dp">
 
     <RelativeLayout

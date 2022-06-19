@@ -21,6 +21,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,9 +33,10 @@ public class MenuProductActivity extends AppCompatActivity {
     private final FirebaseFirestore fStore = FirebaseFirestore.getInstance();
     private final FirebaseAuth fAuth = FirebaseAuth.getInstance();
 
-    CanastaViewModel viewModel;
     private String userId;
     int initialPosition;
+    ArrayList<ItemMenu> products;
+    String initialNombre;
 
     public static Intent newIntent(Context context, Bundle bundle, String initialNombre) {
         Intent intent = new Intent(context, MenuProductActivity.class);
@@ -50,10 +52,15 @@ public class MenuProductActivity extends AppCompatActivity {
 
         ViewPager2 viewPager = findViewById(R.id.menuProductPager);
         userId = fAuth.getUid();
-        viewModel = new ViewModelProvider(this).get(CanastaViewModel.class);
 
-        List<ItemMenu> products = (ArrayList<ItemMenu>) (getIntent().getBundleExtra(COLLECTION).getSerializable(Utils.KEY_CATEGORIA));
-        String initialNombre = getIntent().getStringExtra(POSITION);
+        if (savedInstanceState != null) {
+            products = (ArrayList<ItemMenu>) savedInstanceState.getSerializable(COLLECTION);
+            initialNombre = savedInstanceState.getString(POSITION);
+        } else {
+            products = (ArrayList<ItemMenu>) (getIntent().getBundleExtra(COLLECTION).getSerializable(Utils.KEY_CATEGORIA));
+            initialNombre = getIntent().getStringExtra(POSITION);
+        }
+
         for (ItemMenu product : products) {
             if (product.getNombre().equals(initialNombre)) {
                 initialPosition = products.indexOf(product);
@@ -65,7 +72,7 @@ public class MenuProductActivity extends AppCompatActivity {
             @NonNull
             @Override
             public Fragment createFragment(int position) {
-                return new MenuProductFragment(products.get(position), viewModel, position, products.size());
+                return new MenuProductFragment(products.get(position), position, products.size());
             }
 
             @Override
@@ -128,4 +135,10 @@ public class MenuProductActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString(POSITION, initialNombre);
+        outState.putSerializable(COLLECTION, products);
+    }
 }

@@ -15,6 +15,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.Locale;
 import java.util.Objects;
 
 /**
@@ -33,7 +34,6 @@ public class GiftShopActivity extends AppCompatActivity {
     private DocumentReference userDoc;
     private ImageView imgGastar;
     private GiftshopDialogFragment fragment;
-
     public static Intent newIntent(Context context) {
         return new Intent(context, GiftShopActivity.class);
     }
@@ -65,8 +65,9 @@ public class GiftShopActivity extends AppCompatActivity {
                 txtBonos.setText(String.valueOf(value.getLong(Utils.KEY_BONOS)));
 
                 // we want only the first name of the user on display
-                String[] userNames = Objects.requireNonNull(value.getString(Utils.KEY_NOMBRE)).split(" ");
-                txtMensaje.setText(getString(R.string.gift_user_msg, userNames[0]));
+                String firstName = Objects.requireNonNull(value.getString(Utils.KEY_NOMBRE)).split(" ")[0].toLowerCase();
+                String firstNameCapitalized = firstName.substring(0, 1).toUpperCase() + firstName.substring(1);
+                txtMensaje.setText(getString(R.string.gift_user_msg, firstNameCapitalized));
                 imgGastar.setOnClickListener(v -> {
 
                     // the user is able to open the dialog fragment only in the 'present' status
@@ -75,7 +76,7 @@ public class GiftShopActivity extends AppCompatActivity {
                         Utils.setIsUserPresent(GiftShopActivity.this, true);
 
                         FragmentManager manager = getSupportFragmentManager();
-                        fragment = new GiftshopDialogFragment(userId, GiftShopActivity.this, mainHandler);
+                        fragment = new GiftshopDialogFragment(userId, mainHandler);
                         fragment.show(manager, Utils.TAG);
                     } else {
                         Utils.setCanSendPedidos(GiftShopActivity.this, false);

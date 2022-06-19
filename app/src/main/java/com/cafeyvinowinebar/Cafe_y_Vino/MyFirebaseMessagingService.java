@@ -85,12 +85,13 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
     private void processPuertaAck(RemoteMessage message) {
 
         // we want only the first name of the user on display
-        String[] userNames = Objects.requireNonNull(message.getData().get(Utils.KEY_NOMBRE)).split(" ");
+        String firstName = Objects.requireNonNull(message.getData().get(Utils.KEY_NOMBRE)).split(" ")[0].toLowerCase();
+        String firstNameCapitalized = firstName.substring(0, 1).toUpperCase() + firstName.substring(1);
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, App.PUERTA)
                 .setContentTitle(getString(R.string.noti_puerta_title))
                 .setSmallIcon(R.drawable.logo_mini)
                 .setStyle(new NotificationCompat.BigTextStyle()
-                        .bigText(getString(R.string.noti_puerta_text, userNames[0])))
+                        .bigText(getString(R.string.noti_puerta_text, firstNameCapitalized)))
                 .setColor(getColor(R.color.disco))
                 .setAutoCancel(true);
         manager.notify(new Random().nextInt(), builder.build());
@@ -150,13 +151,14 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         Utils.setCanSendPedidos(this, true);
 
         // we want only the first name of the user on display
-        String[] userNames = Objects.requireNonNull(message.getData().get(Utils.KEY_NOMBRE)).split(" ");
+        String firstName = Objects.requireNonNull(message.getData().get(Utils.KEY_NOMBRE)).split(" ")[0].toLowerCase();
+        String firstNameCapitalized = firstName.substring(0, 1).toUpperCase() + firstName.substring(1);
         String bono = message.getData().get(Utils.KEY_BONO);
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, App.CUENTA)
                 .setSmallIcon(R.drawable.logo_mini)
                 .setContentTitle(getString(R.string.noti_farewell_title))
                 .setStyle(new NotificationCompat.BigTextStyle()
-                        .bigText(getString(R.string.noti_farewell_text, userNames[0], bono)))
+                        .bigText(getString(R.string.noti_farewell_text, firstNameCapitalized, bono)))
                 .setColor(getColor(R.color.disco))
                 .setAutoCancel(true);
         manager.notify(new Random().nextInt(), builder.build());
