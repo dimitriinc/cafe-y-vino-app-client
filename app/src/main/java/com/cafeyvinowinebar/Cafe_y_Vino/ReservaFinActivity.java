@@ -39,7 +39,7 @@ import java.util.Objects;
  * Based on chosen table, the user chooses the amount of persons
  */
 
-public class ReservaFinActivity extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener {
+public class    ReservaFinActivity extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener {
 
     private final FirebaseFirestore fStore = FirebaseFirestore.getInstance();
     private final FirebaseAuth fAuth = FirebaseAuth.getInstance();

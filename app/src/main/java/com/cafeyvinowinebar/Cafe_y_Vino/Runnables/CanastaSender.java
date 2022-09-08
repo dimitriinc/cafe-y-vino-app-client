@@ -42,8 +42,6 @@ import java.util.stream.Collectors;
 
 public class CanastaSender implements Runnable {
 
-    private static final String TAG = "CanastaSender";
-
     private final FirebaseFirestore fStore = FirebaseFirestore.getInstance();
     private final FirebaseMessaging fMessaging = FirebaseMessaging.getInstance();
 

@@ -144,6 +144,46 @@
     <string name="no_desc">La descripción estará disponible pronto</string>
     <string name="entry_request_msg">Envía una solicitud de entrada cuando estás en el restaurante para poder crear pedidos, supervisar tu cuenta y ganar puntos de bono</string>
     <string name="entry_request_positive_btn">Enviar la solicitud</string>
+    <string name="privacy_msg">Permítenos recopilar y almacenar los datos entrados</string>
+    <string name="requireAge">Tengo 18 años o más</string>
+    <string name="age_restriction">Tienes que cumplir 18 años antes de continuar</string>
+    <string name="privacy_saber">Saber más</string>
+    <string name="permitir">Permitir</string>
+    <string name="rechazar">Rechazar</string>
+
+    <string name="politica_de_privacidad">
+        <big><em>La Política de Privacidad</em></big>\n\n
+
+        <b>¿Cuáles datos recopilan?</b>\n
+        El nombre, el número de teléfono, el email y la fecha de nacimiento.\n\n
+
+        <b>¿Para que los utilizan?</b>\n
+        Email - la autarización en el sistema.\n
+        Nombre y teléfono - la identificación personal de los clientes y de las reservas.\n
+        Fecha de nacimiento - la identificación de la edad, no servimos los tragos alcohólicos a los menores.\n\n
+
+        <b>¿Donde están almacenados los datos?</b>\n
+        En el banco de datos Firebase Firestore, poseido por el Google.\n\n
+
+        <b>¿Por cuanto tiempo los almacenan?</b>\n
+        A lo largo que usted mantenga la app en su dispositivo. Al borrar la app, los datos serán borrados del banco de datos.\n\n
+
+        <b>¿De que manera están protegidos los datos recopilados?</b>\n
+        Los datos se encriptan cada vez al transportarse del dispositivo al servidor y de vuelta. Tambien están encriptados mientras yacen en el banco de datos.\n\n
+
+        <b>¿Comparten los datos con las entidades exteriores?</b>\n
+        No.\n\n
+
+        <b>¿Recopilan los datos sensibles?</b>\n
+        No.\n\n
+
+        <b>¿Puedo editar los datos almacenados?</b>\n
+        Si, en la pantalla de los Datos del Usuario.\n\n
+
+        <b>¿Utilizan los Cookies?</b>\n
+        No.
+
+    </string>
 
     <string-array name="pager_headings">
         <item>Haz pedidos</item>

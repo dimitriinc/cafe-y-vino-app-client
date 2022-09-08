@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/shape_fab_txt">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/privacy_msg"
+        android:textSize="22sp"
+        android:gravity="center"
+        android:id="@+id/txtPrivacyMsg"
+        android:padding="10dp"
+        android:textColor="@color/white"
+        android:layout_marginHorizontal="20dp"
+        android:fontFamily="@font/david_libre"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtPrivacyMsg"
+        android:layout_marginHorizontal="10dp"
+        android:id="@+id/btnPrivacySaber"
+        android:backgroundTint="@color/darkest_teal"
+        android:textSize="22sp"
+        android:textAllCaps="false"
+        app:cornerRadius="10dp"
+        android:text="@string/privacy_saber"
+        android:fontFamily="@font/aladin"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal"
+        android:layout_below="@+id/btnPrivacySaber"
+        android:paddingBottom="15dp">
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:layout_marginEnd="20dp"
+            android:backgroundTint="@color/darkest_teal"
+            android:id="@+id/btnPrivacyPermitir"
+            android:layout_marginTop="20dp"
+            app:cornerRadius="5dp"
+            android:textSize="22sp"
+            android:fontFamily="@font/aladin"
+            android:text="@string/permitir"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/pastel"
+            android:layout_marginTop="20dp"
+            app:cornerRadius="5dp"
+            android:text="@string/rechazar"
+            android:id="@+id/btnPrivacyRechazar"
+            android:layout_marginStart="20dp"
+            android:textAllCaps="false"
+            android:textSize="22sp"
+            android:fontFamily="@font/aladin"/>
+
+    </LinearLayout>
+
+
+
+
+</RelativeLayout>

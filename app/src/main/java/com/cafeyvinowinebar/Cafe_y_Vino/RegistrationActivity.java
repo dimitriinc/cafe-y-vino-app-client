@@ -1,5 +1,6 @@
 package com.cafeyvinowinebar.Cafe_y_Vino;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
@@ -9,6 +10,7 @@ import android.os.Handler;
 import android.text.TextUtils;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -105,36 +107,56 @@ public class RegistrationActivity extends AppCompatActivity {
                     return;
                 }
 
-                progressBar.setVisibility(View.VISIBLE);
+                View privacyView = LayoutInflater.from(this).inflate(R.layout.alert_privacy, null);
+                Button saberMas = privacyView.findViewById(R.id.btnPrivacySaber);
+                Button permitir = privacyView.findViewById(R.id.btnPrivacyPermitir);
+                Button rechazar = privacyView.findViewById(R.id.btnPrivacyRechazar);
 
-                fAuth.createUserWithEmailAndPassword(email, pass)
-                        .addOnSuccessListener(App.executor, authResult -> fMessaging.getToken().addOnSuccessListener(App.executor, s -> {
+                AlertDialog dialog = new AlertDialog.Builder(this)
+                        .setView(privacyView)
+                        .create();
 
-                            userId = Objects.requireNonNull(fAuth.getCurrentUser()).getUid();
-                            DocumentReference documentReference = fStore.collection("usuarios").document(userId);
-                            Map<String, Object> user = new HashMap<>();
-                            user.put(Utils.KEY_NOMBRE, name);
-                            user.put(Utils.TELEFONO_ACCENT, phone);
-                            user.put(Utils.IS_PRESENT, false);
-                            user.put(Utils.KEY_MESA, "00");
-                            user.put(Utils.KEY_TOKEN, s);
-                            user.put(Utils.KEY_BONOS, 0);
-                            user.put(Utils.KEY_FECHA_DE_NACIMIENTO, fecha);
-                            user.put(Utils.EMAIL, fAuth.getCurrentUser().getEmail());
-                            documentReference.set(user);
-                            progressBar.setVisibility(View.INVISIBLE);
-                            startActivity(MainActivity.newIntent(getBaseContext()));
-                        }))
-                        .addOnFailureListener(App.executor, e -> handler.post(() -> {
-                            if (e instanceof FirebaseAuthUserCollisionException) {
-                                Toast.makeText(RegistrationActivity.this, R.string.email_collision, Toast.LENGTH_SHORT).show();
-                            } else {
-                                Toast.makeText(RegistrationActivity.this, getString(R.string.error), Toast.LENGTH_LONG).show();
-                            }
-                            progressBar.setVisibility(View.INVISIBLE);
+                saberMas.setOnClickListener( view -> {
+                    startActivity(new Intent( RegistrationActivity.this, PrivacyActivity.class));
+                });
 
-                        }));
+                permitir.setOnClickListener( view -> {
+                    dialog.dismiss();
+                    progressBar.setVisibility(View.VISIBLE);
+                    fAuth.createUserWithEmailAndPassword(email, pass)
+                            .addOnSuccessListener(App.executor, authResult -> fMessaging.getToken().addOnSuccessListener(App.executor, s -> {
 
+                                userId = Objects.requireNonNull(fAuth.getCurrentUser()).getUid();
+                                DocumentReference documentReference = fStore.collection("usuarios").document(userId);
+                                Map<String, Object> user = new HashMap<>();
+                                user.put(Utils.KEY_NOMBRE, name);
+                                user.put(Utils.TELEFONO_ACCENT, phone);
+                                user.put(Utils.IS_PRESENT, false);
+                                user.put(Utils.KEY_MESA, "00");
+                                user.put(Utils.KEY_TOKEN, s);
+                                user.put(Utils.KEY_BONOS, 0);
+                                user.put(Utils.KEY_FECHA_DE_NACIMIENTO, fecha);
+                                user.put(Utils.EMAIL, fAuth.getCurrentUser().getEmail());
+                                documentReference.set(user);
+                                progressBar.setVisibility(View.INVISIBLE);
+                                startActivity(MainActivity.newIntent(getBaseContext()));
+                            }))
+                            .addOnFailureListener(App.executor, e -> handler.post(() -> {
+                                if (e instanceof FirebaseAuthUserCollisionException) {
+                                    Toast.makeText(RegistrationActivity.this, R.string.email_collision, Toast.LENGTH_SHORT).show();
+                                } else {
+                                    Toast.makeText(RegistrationActivity.this, getString(R.string.error), Toast.LENGTH_LONG).show();
+                                }
+                                progressBar.setVisibility(View.INVISIBLE);
+
+                            }));
+                });
+
+                rechazar.setOnClickListener( view -> {
+                    dialog.dismiss();
+                });
+
+                dialog.show();
 
             } else {
                 Toast.makeText(getBaseContext(), R.string.no_connection, Toast.LENGTH_LONG).show();

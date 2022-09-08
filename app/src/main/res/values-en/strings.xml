@@ -50,7 +50,7 @@
     <string name="reserva_comment">A comment (optional)</string>
     <string name="telefono">Phone number</string>
     <string name="contraseña">Password</string>
-    <string name="fecha_nacimiento">Date of birth</string>
+    <string name="fecha_nacimiento">Birthdate</string>
     <string name="email">E-mail</string>
     <string name="su_email">your e-mail</string>
     <string name="error_email">Please, type in your e-mail</string>
@@ -116,6 +116,46 @@
     <string name="wrong_password">Wrong password</string>
     <string name="email_collision">This email is already used in the system</string>
     <string name="no_desc">The description will be available soon</string>
+    <string name="privacy_msg">Allow us to gather and store the provided data</string>
+    <string name="requireAge">I am 18 years old or more</string>
+    <string name="age_restriction">You have to be at least 18 years old</string>
+    <string name="privacy_saber">Learn more</string>
+    <string name="permitir">Allow</string>
+    <string name="rechazar">Deny</string>
+
+    <string name="politica_de_privacidad">
+        <big><em>Privacy Policy</em></big>\n\n
+
+        <b>What data do you collect?</b>\n
+        Your name, phone number, email, and birthdate.\n\n
+
+        <b>What do you use it for?</b>\n
+        Email - authentication in the system.\n
+        Name and phone number - personal identification of clients and their reservations.\n
+        Birthdate - identification of age, we do not serve alcoholic drinks to minors.\n\n
+
+        <b>Where do you store the data?</b>\n
+        In the Firebase Firestore database, owned by Google.\n\n
+
+        <b>For how long do you store the data?</b>\n
+        As long as you have the app on your device. When you delete the app, your data is deleted from the database.\n\n
+
+        <b>How the collected data is protected?</b>\n
+        The data is encrypted every time it is transported from the device to server and the other way around.
+        It is also encrypted when it rests in the database.\n\n
+
+        <b>Do you share the data with external entities?</b>\n
+        No.\n\n
+
+        <b>Do you collect sensitive personal data?</b>\n
+        No.\n\n
+
+        <b>Can I modify the collected data?</b>\n
+        Yes, at the User Data screen.\n\n
+
+        <b>Do you use Cookies?</b>\n
+        No.
+    </string>
 
     <string-array name="pager_headings">
         <item>Create and send orders</item>

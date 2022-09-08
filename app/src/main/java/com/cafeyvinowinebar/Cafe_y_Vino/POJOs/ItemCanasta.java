@@ -5,7 +5,7 @@ import androidx.room.PrimaryKey;
 
 /**
  * Represents a building block of orders as seen by customers
- * Stored in the SQLite database
+ * Stored in a SQLite database
  * Model for the AdapterCanasta
  */
 
