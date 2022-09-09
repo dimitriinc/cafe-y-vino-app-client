@@ -80,7 +80,7 @@ public class MainMenuActivity extends AppCompatActivity {
                 .build();
         adapter = new AdapterMainMenu(options, handler, this);
         recCategories.setAdapter(adapter);
-        recCategories.setLayoutManager(new LinearLayoutManager(this));
+        recCategories.setLayoutManager(new LinearLayoutManager(MainMenuActivity.this));
 
         adapter.setOnItemClickListener((documentSnapshot, position) -> {
 

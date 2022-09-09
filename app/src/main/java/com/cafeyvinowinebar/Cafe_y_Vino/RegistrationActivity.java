@@ -103,7 +103,7 @@ public class RegistrationActivity extends AppCompatActivity {
                     return;
                 }
                 if (TextUtils.isEmpty(fecha)) {
-                    edtFecha.setError(getString(R.string.error_fecha_nacimiento));
+                    edtFecha.setError(  getString(R.string.error_fecha_nacimiento));
                     return;
                 }
 
